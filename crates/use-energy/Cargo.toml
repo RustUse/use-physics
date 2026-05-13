@@ -1,0 +1,22 @@
+[package]
+name = "use-energy"
+description = "Work and mechanical energy helpers for RustUse"
+publish = true
+authors.workspace = true
+version.workspace = true
+edition.workspace = true
+homepage.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+readme = "README.md"
+documentation = "https://docs.rs/use-energy"
+keywords = ["energy", "work", "kinetic", "potential", "physics"]
+categories = ["science", "mathematics"]
+
+[[example]]
+name = "use-energy-basic-usage"
+path = "examples/basic_usage.rs"
+
+[lints]
+workspace = true

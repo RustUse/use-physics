@@ -1,0 +1,101 @@
+name: Bug report
+description: Report a defect, regression, or incorrect behavior in a RustUse crate or workflow.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for filing a report.
+
+        Keep the reproduction as small as you can. If the report belongs in private security handling, stop here and use SECURITY.md instead of opening a public issue.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      description: Pick the crate or workspace surface that shows the problem.
+      options:
+        - use-physics facade crate
+        - use-motion focused crate
+        - use-force focused crate
+        - use-energy focused crate
+        - use-power focused crate
+        - use-pressure focused crate
+        - use-density focused crate
+        - use-thermodynamics focused crate
+        - Workspace tooling or CI
+        - Documentation or examples
+        - Not sure yet
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      description: Crate version, git commit, or branch name.
+      placeholder: 0.0.1 or main@<commit>
+    validations:
+      required: true
+  - type: input
+    id: features
+    attributes:
+      label: Feature flags
+      description: List enabled features, or say none/default.
+      placeholder: geometry, combinatorics, full, no-default-features
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Describe the defect in one or two sentences.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Paste the smallest code sample, command, or sequence that reproduces the problem.
+      placeholder: |
+        1. Add ...
+        2. Run ...
+        3. Observe ...
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include panic text, compiler output, or screenshots if they help.
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: Windows 11, Ubuntu 24.04, macOS 15
+  - type: input
+    id: rust
+    attributes:
+      label: Rust toolchain
+      placeholder: rustc 1.95.0 (stable)
+  - type: input
+    id: target
+    attributes:
+      label: Target triple
+      placeholder: x86_64-pc-windows-msvc
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: I searched existing issues and did not find the same report.
+          required: true
+        - label: I used the smallest reproduction I could provide.
+          required: true

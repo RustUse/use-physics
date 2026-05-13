@@ -1,0 +1,66 @@
+name: Feature request
+description: Propose a new API, crate capability, or developer-experience improvement.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Feature requests should stay aligned with RustUse goals: small APIs, predictable dependencies, and clear validation behavior.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - use-physics facade crate
+        - use-motion focused crate
+        - use-force focused crate
+        - use-energy focused crate
+        - use-power focused crate
+        - use-pressure focused crate
+        - use-density focused crate
+        - use-thermodynamics focused crate
+        - Documentation or examples
+        - Tooling, CI, or release workflow
+        - New crate idea
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: Describe the user need, missing capability, or workflow pain.
+    validations:
+      required: true
+  - type: textarea
+    id: proposed
+    attributes:
+      label: Proposed change
+      description: Describe the API, behavior, or process you want.
+    validations:
+      required: true
+  - type: textarea
+    id: fit
+    attributes:
+      label: Why this belongs in RustUse
+      description: Explain why this fits the workspace goals and should not stay external.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Mention other crates, designs, or workflows you evaluated.
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Add sketches, examples, or links if they clarify the request.
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: I checked whether this belongs in a Discussion before opening a tracked issue.
+          required: true

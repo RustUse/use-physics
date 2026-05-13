@@ -1,0 +1,54 @@
+[package]
+name = "use-physics"
+description = "Composable facade crate for RustUse physics helpers"
+publish = true
+authors.workspace = true
+version.workspace = true
+edition.workspace = true
+homepage.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+readme = "README.md"
+documentation = "https://docs.rs/use-physics"
+keywords = ["physics", "motion", "force", "energy", "pressure"]
+categories = ["science", "mathematics"]
+
+[package.metadata.docs.rs]
+all-features = true
+
+[features]
+default = ["full"]
+motion = ["dep:use-motion"]
+force = ["dep:use-force"]
+energy = ["dep:use-energy"]
+power = ["dep:use-power"]
+pressure = ["dep:use-pressure"]
+density = ["dep:use-density"]
+thermodynamics = ["dep:use-thermodynamics"]
+full = [
+    "motion",
+    "force",
+    "energy",
+    "power",
+    "pressure",
+    "density",
+    "thermodynamics",
+]
+
+[dependencies]
+use-density = { version = "0.0.1", path = "../use-density", optional = true }
+use-energy = { version = "0.0.1", path = "../use-energy", optional = true }
+use-force = { version = "0.0.1", path = "../use-force", optional = true }
+use-motion = { version = "0.0.1", path = "../use-motion", optional = true }
+use-power = { version = "0.0.1", path = "../use-power", optional = true }
+use-pressure = { version = "0.0.1", path = "../use-pressure", optional = true }
+use-thermodynamics = { version = "0.0.1", path = "../use-thermodynamics", optional = true }
+
+[[example]]
+name = "facade_force_energy"
+path = "examples/facade_force_energy.rs"
+required-features = ["force", "energy"]
+
+[lints]
+workspace = true

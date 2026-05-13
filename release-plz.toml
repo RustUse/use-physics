@@ -1,0 +1,76 @@
+[workspace]
+release = false
+release_always = false
+changelog_update = false
+pr_labels = ["release"]
+max_analyze_commits = 2000
+
+[[package]]
+name = "use-motion"
+release = true
+version_group = "rustuse-physics"
+
+[[package]]
+name = "use-force"
+release = true
+version_group = "rustuse-physics"
+
+[[package]]
+name = "use-energy"
+release = true
+version_group = "rustuse-physics"
+
+[[package]]
+name = "use-power"
+release = true
+version_group = "rustuse-physics"
+
+[[package]]
+name = "use-pressure"
+release = true
+version_group = "rustuse-physics"
+
+[[package]]
+name = "use-density"
+release = true
+version_group = "rustuse-physics"
+
+[[package]]
+name = "use-thermodynamics"
+release = true
+version_group = "rustuse-physics"
+changelog_update = false
+
+[[package]]
+name = "use-physics"
+release = true
+version_group = "rustuse-physics"
+changelog_update = true
+changelog_path = "./CHANGELOG.md"
+changelog_include = [
+  "use-motion",
+  "use-force",
+  "use-energy",
+  "use-power",
+  "use-pressure",
+  "use-density",
+  "use-thermodynamics",
+]
+
+[changelog]
+header = """# Changelog
+
+## Unreleased
+"""
+protect_breaking_commits = true
+sort_commits = "oldest"
+commit_parsers = [
+  { message = "^feat(?:\\([^)]+\\))?!?: .+", group = "Added" },
+  { message = "^fix(?:\\([^)]+\\))?!?: .+", group = "Fixed" },
+  { message = "^security(?:\\([^)]+\\))?!?: .+", group = "Security" },
+  { message = "^(?:refactor|perf|change)(?:\\([^)]+\\))?!?: .+", group = "Changed" },
+  { message = "^docs(?:\\([^)]+\\))?!?: .+", group = "Documentation" },
+  { message = "^(?:build|ci|chore|deps|test)(?:\\([^)]+\\))?!?: .+", group = "Tooling" },
+  { footer = "^changelog: ?ignore$", skip = true },
+  { message = "^.*", group = "Changed" },
+]

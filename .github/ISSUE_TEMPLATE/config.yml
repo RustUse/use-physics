@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Ask a question or start a design discussion
+    url: https://github.com/RustUse/use-physics/discussions
+    about: Use Discussions for usage questions, design exploration, roadmap ideas, and general support once Discussions are enabled for the repository.
+  - name: Get support before Discussions are enabled
+    url: https://github.com/RustUse/.github/blob/main/SUPPORT.md
+    about: Use the support policy for help and routing until Discussions are enabled for the repository.
+  - name: Read the contribution guide
+    url: https://github.com/RustUse/use-physics/blob/main/CONTRIBUTING.md
+    about: Review contribution expectations and the local validation checklist before opening a pull request.
+  - name: Read the security policy
+    url: https://github.com/RustUse/.github/blob/main/SECURITY.md
+    about: Do not open public issues for vulnerabilities.
