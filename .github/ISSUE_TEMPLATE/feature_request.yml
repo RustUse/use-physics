@@ -23,6 +23,7 @@ body:
         - use-density focused crate
         - use-gravity focused crate
         - use-momentum focused crate
+        - use-particle focused crate
         - use-thermodynamics focused crate
         - Documentation or examples
         - Tooling, CI, or release workflow

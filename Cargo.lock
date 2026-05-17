@@ -31,6 +31,10 @@ name = "use-motion"
 version = "0.0.1"
 
 [[package]]
+name = "use-particle"
+version = "0.0.1"
+
+[[package]]
 name = "use-physics"
 version = "0.0.1"
 dependencies = [
@@ -41,6 +45,7 @@ dependencies = [
  "use-gravity",
  "use-momentum",
  "use-motion",
+ "use-particle",
  "use-power",
  "use-pressure",
  "use-thermodynamics",

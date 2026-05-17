@@ -27,7 +27,7 @@ jobs:
         runs-on: ubuntu-latest
         env:
             PUBLISHED_CRATES: >-
-                use-motion use-force use-energy use-power use-electricity use-pressure use-density use-gravity use-momentum use-thermodynamics use-physics
+                use-motion use-force use-energy use-power use-electricity use-pressure use-density use-gravity use-momentum use-particle use-thermodynamics use-physics
         steps:
             - name: Check out repository
               uses: actions/checkout@v4

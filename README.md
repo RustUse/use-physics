@@ -1,6 +1,6 @@
 # RustUse/use-physics
 
-Composable `f64`-first mechanics, electricity, gravity, momentum, and thermodynamics helpers for Rust.
+Composable `f64`-first mechanics, electricity, gravity, momentum, particle metadata, and thermodynamics helpers for Rust.
 
 ## Workspace crates
 
@@ -16,6 +16,7 @@ Composable `f64`-first mechanics, electricity, gravity, momentum, and thermodyna
 | `use-density`        | `crates/use-density/`        | Density, mass, and volume helpers                    |
 | `use-gravity`        | `crates/use-gravity/`        | Gravity, orbit, and gravitational energy helpers     |
 | `use-momentum`       | `crates/use-momentum/`       | Momentum, impulse, recoil, and collision helpers     |
+| `use-particle`       | `crates/use-particle/`       | Particle classification and metadata helpers         |
 | `use-thermodynamics` | `crates/use-thermodynamics/` | Ideal gas and heat-energy helpers                    |
 
 ## Installation
@@ -29,16 +30,19 @@ use use_energy::kinetic_energy;
 use use_electricity::voltage;
 use use_force::force;
 use use_momentum::momentum;
+use use_particle::{ParticleKind, charge};
 
 let applied_force = force(10.0, 2.0);
 let circuit_voltage = voltage(2.0, 5.0);
 let energy = kinetic_energy(2.0, 3.0);
 let linear_momentum = momentum(2.0, 3.0);
+let electron_charge = charge(ParticleKind::Electron);
 
 assert_eq!(applied_force, 20.0);
 assert_eq!(circuit_voltage, Some(10.0));
 assert_eq!(energy, 9.0);
 assert_eq!(linear_momentum, Some(6.0));
+assert_eq!(electron_charge.thirds, -3);
 ```
 
 ## License

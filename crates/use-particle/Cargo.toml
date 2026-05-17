@@ -1,0 +1,22 @@
+[package]
+name = "use-particle"
+description = "Particle classification and metadata helpers for RustUse"
+publish = true
+authors.workspace = true
+version.workspace = true
+edition.workspace = true
+homepage.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+readme = "README.md"
+documentation = "https://docs.rs/use-particle"
+keywords = ["particle", "physics", "charge", "spin", "metadata"]
+categories = ["science", "mathematics"]
+
+[[example]]
+name = "use-particle-basic-usage"
+path = "examples/basic_usage.rs"
+
+[lints]
+workspace = true

@@ -28,6 +28,7 @@ pressure = ["dep:use-pressure"]
 density = ["dep:use-density"]
 gravity = ["dep:use-gravity"]
 momentum = ["dep:use-momentum"]
+particle = ["dep:use-particle"]
 thermodynamics = ["dep:use-thermodynamics"]
 full = [
     "motion",
@@ -39,6 +40,7 @@ full = [
     "density",
     "gravity",
     "momentum",
+    "particle",
     "thermodynamics",
 ]
 
@@ -50,6 +52,7 @@ use-force = { version = "0.0.1", path = "../use-force", optional = true }
 use-gravity = { version = "0.0.1", path = "../use-gravity", optional = true }
 use-momentum = { version = "0.0.1", path = "../use-momentum", optional = true }
 use-motion = { version = "0.0.1", path = "../use-motion", optional = true }
+use-particle = { version = "0.0.1", path = "../use-particle", optional = true }
 use-power = { version = "0.0.1", path = "../use-power", optional = true }
 use-pressure = { version = "0.0.1", path = "../use-pressure", optional = true }
 use-thermodynamics = { version = "0.0.1", path = "../use-thermodynamics", optional = true }
@@ -58,6 +61,11 @@ use-thermodynamics = { version = "0.0.1", path = "../use-thermodynamics", option
 name = "facade_force_energy"
 path = "examples/facade_force_energy.rs"
 required-features = ["force", "energy"]
+
+[[example]]
+name = "facade_particle"
+path = "examples/facade_particle.rs"
+required-features = ["particle"]
 
 [lints]
 workspace = true

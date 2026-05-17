@@ -51,6 +51,11 @@ release = true
 version_group = "rustuse-physics"
 
 [[package]]
+name = "use-particle"
+release = true
+version_group = "rustuse-physics"
+
+[[package]]
 name = "use-thermodynamics"
 release = true
 version_group = "rustuse-physics"
@@ -72,6 +77,7 @@ changelog_include = [
   "use-density",
   "use-gravity",
   "use-momentum",
+  "use-particle",
   "use-thermodynamics",
 ]
 
