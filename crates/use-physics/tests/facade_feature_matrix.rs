@@ -16,14 +16,15 @@
     feature = "gravity",
     feature = "momentum",
     feature = "particle",
+    feature = "nuclear",
     feature = "thermodynamics"
 ))]
 #[test]
 fn facade_exposes_all_namespace_features() {
     use use_physics::{
         density as _, electricity as _, energy as _, fluid as _, force as _, gravity as _,
-        magnetism as _, momentum as _, motion as _, particle as _, power as _, pressure as _,
-        rotation as _, thermodynamics as _, torque as _,
+        magnetism as _, momentum as _, motion as _, nuclear as _, particle as _, power as _,
+        pressure as _, rotation as _, thermodynamics as _, torque as _,
     };
 
     let _ = use_physics::work::net_work;
@@ -44,6 +45,7 @@ fn facade_exposes_all_namespace_features() {
     not(feature = "gravity"),
     not(feature = "momentum"),
     not(feature = "particle"),
+    not(feature = "nuclear"),
     not(feature = "thermodynamics")
 ))]
 #[test]
@@ -67,6 +69,7 @@ fn facade_supports_force_only() {
     not(feature = "density"),
     not(feature = "gravity"),
     not(feature = "particle"),
+    not(feature = "nuclear"),
     not(feature = "thermodynamics")
 ))]
 #[test]
@@ -91,6 +94,7 @@ fn facade_supports_momentum_only() {
     not(feature = "gravity"),
     not(feature = "momentum"),
     not(feature = "particle"),
+    not(feature = "nuclear"),
     not(feature = "thermodynamics")
 ))]
 #[test]
@@ -100,6 +104,31 @@ fn facade_supports_rotation_only() {
         use_physics::solid_disk_moment_of_inertia(2.0, 3.0),
         Some(9.0)
     );
+}
+
+#[cfg(all(
+    feature = "nuclear",
+    not(feature = "motion"),
+    not(feature = "rotation"),
+    not(feature = "force"),
+    not(feature = "torque"),
+    not(feature = "energy"),
+    not(feature = "work"),
+    not(feature = "power"),
+    not(feature = "electricity"),
+    not(feature = "magnetism"),
+    not(feature = "pressure"),
+    not(feature = "fluid"),
+    not(feature = "density"),
+    not(feature = "gravity"),
+    not(feature = "momentum"),
+    not(feature = "particle"),
+    not(feature = "thermodynamics")
+))]
+#[test]
+fn facade_supports_nuclear_only() {
+    assert_eq!(use_physics::activity(2.0, 10.0), Some(20.0));
+    assert_eq!(use_physics::neutron_count(4, 2), Some(2));
 }
 
 #[cfg(all(feature = "force", feature = "momentum"))]

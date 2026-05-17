@@ -1,6 +1,8 @@
 # RustUse/use-physics
 
-Composable `f64`-first mechanics, rotational motion, torque, fluid flow, electricity, magnetism, gravity, momentum, particle metadata, and thermodynamics helpers for Rust.
+Composable `f64`-first mechanics, rotational motion, torque, fluid flow, electricity,
+magnetism, gravity, momentum, particle metadata, nuclear physics, and thermodynamics helpers
+for Rust.
 
 ## Workspace crates
 
@@ -22,11 +24,13 @@ Composable `f64`-first mechanics, rotational motion, torque, fluid flow, electri
 | `use-gravity`        | `crates/use-gravity/`        | Gravity, orbit, and gravitational energy helpers     |
 | `use-momentum`       | `crates/use-momentum/`       | Momentum, impulse, recoil, and collision helpers     |
 | `use-particle`       | `crates/use-particle/`       | Particle classification and metadata helpers         |
+| `use-nuclear`        | `crates/use-nuclear/`        | Radioactive decay and nuclear scalar helpers         |
 | `use-thermodynamics` | `crates/use-thermodynamics/` | Ideal gas and heat-energy helpers                    |
 
 ## Installation
 
-Use the workspace directly or depend on a Git revision until the first crates.io release is published.
+Use the workspace directly, or depend on a Git revision when you need workspace changes that are
+newer than the latest published crates.io release.
 
 ## Basic usage
 
@@ -35,6 +39,7 @@ use use_energy::kinetic_energy;
 use use_electricity::voltage;
 use use_force::force;
 use use_momentum::momentum;
+use use_nuclear::activity;
 use use_particle::{ParticleKind, charge};
 use use_rotation::angular_velocity;
 use use_torque::torque;
@@ -45,6 +50,7 @@ let applied_torque = torque(10.0, 2.0);
 let circuit_voltage = voltage(2.0, 5.0);
 let energy = kinetic_energy(2.0, 3.0);
 let linear_momentum = momentum(2.0, 3.0);
+let sample_activity = activity(2.0, 10.0);
 let electron_charge = charge(ParticleKind::Electron);
 let angled_work = work_at_angle_degrees(10.0, 2.0, 60.0);
 let spin_rate = angular_velocity(10.0, 2.0);
@@ -54,6 +60,7 @@ assert_eq!(applied_torque, Some(20.0));
 assert_eq!(circuit_voltage, Some(10.0));
 assert_eq!(energy, 9.0);
 assert_eq!(linear_momentum, Some(6.0));
+assert_eq!(sample_activity, Some(20.0));
 assert_eq!(electron_charge.thirds, -3);
 assert_eq!(angled_work, Some(10.0));
 assert_eq!(spin_rate, Some(5.0));

@@ -1,6 +1,7 @@
 # Release Policy
 
-RustUse/use-physics is not published yet. The root workspace metadata keeps `publish = false` as the default, while the current first-wave crate manifests already opt in with `publish = true`.
+The root workspace metadata keeps `publish = false` as the default, while the publishable crate
+manifests opt in with `publish = true`.
 
 ## First Publish Wave
 
@@ -23,7 +24,8 @@ Publish all focused crates first in this dry-run and manual publish order:
 13. `use-gravity`
 14. `use-momentum`
 15. `use-particle`
-16. `use-thermodynamics`
+16. `use-nuclear`
+17. `use-thermodynamics`
 
 Wait for crates.io index propagation, then publish `use-physics`.
 
@@ -68,4 +70,4 @@ The repository includes `release-plz` configuration in `release-plz.toml` and ma
 6. Confirm `cargo clippy --workspace --all-targets --all-features` passes.
 7. Confirm `cargo deny check` and `cargo audit` pass.
 8. Review README examples, crate metadata, `Cargo.lock`, and changelog entries.
-9. Confirm the focused-crate dry-run order remains `use-motion`, `use-rotation`, `use-force`, `use-torque`, `use-energy`, `use-work`, `use-power`, `use-fluid`, `use-electricity`, `use-magnetism`, `use-pressure`, `use-density`, `use-gravity`, `use-momentum`, `use-particle`, then `use-thermodynamics`.
+9. Confirm the focused-crate dry-run order remains `use-motion`, `use-rotation`, `use-force`, `use-torque`, `use-energy`, `use-work`, `use-power`, `use-fluid`, `use-electricity`, `use-magnetism`, `use-pressure`, `use-density`, `use-gravity`, `use-momentum`, `use-particle`, `use-nuclear`, then `use-thermodynamics`.

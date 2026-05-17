@@ -6,12 +6,12 @@ Feature-gated facade for the focused `RustUse` physics crates.
 
 ```toml
 [dependencies]
-use-physics = { version = "0.0.1", default-features = false, features = ["gravity", "momentum", "fluid", "electricity", "magnetism", "particle", "work"] }
+use-physics = { version = "0.0.1", default-features = false, features = ["gravity", "momentum", "fluid", "electricity", "magnetism", "particle", "nuclear", "work"] }
 ```
 
 ## Foundation
 
-`use-physics` re-exports focused `f64`-first physics helpers behind opt-in features. The facade stays thin, mirrors the boundaries of the concrete crates, and exposes each enabled crate under a matching module such as `use_physics::gravity`, `use_physics::momentum`, `use_physics::fluid`, `use_physics::electricity`, `use_physics::magnetism`, `use_physics::particle`, or `use_physics::work`.
+`use-physics` re-exports focused `f64`-first physics helpers behind opt-in features. The facade stays thin, mirrors the boundaries of the concrete crates, and exposes each enabled crate under a matching module such as `use_physics::gravity`, `use_physics::momentum`, `use_physics::fluid`, `use_physics::electricity`, `use_physics::magnetism`, `use_physics::particle`, `use_physics::nuclear`, or `use_physics::work`.
 
 When focused crates would otherwise collide at the root, the facade keeps explicit aliases or module boundaries. For example, enabling both `force` and `momentum` preserves `use-force`'s `impulse` export and re-exports the force-time helper from `use-momentum` as `momentum_impulse`. Enabling both `pressure` and `fluid` keeps `use-pressure`'s `hydrostatic_pressure` export at the root and re-exports the fluid-specific helper as `fluid_hydrostatic_pressure`. Likewise, the full `use-work` surface stays available under `use_physics::work` while the existing root `work` export continues to come from `use-energy`.
 
