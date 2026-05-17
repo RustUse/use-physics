@@ -33,6 +33,7 @@ pressure = ["dep:use-pressure"]
 fluid = ["dep:use-fluid"]
 density = ["dep:use-density"]
 gravity = ["dep:use-gravity"]
+orbit = ["dep:use-orbit"]
 momentum = ["dep:use-momentum"]
 relativity = ["dep:use-relativity"]
 quantum = ["dep:use-quantum"]
@@ -54,6 +55,7 @@ full = [
     "fluid",
     "density",
     "gravity",
+    "orbit",
     "momentum",
     "relativity",
     "quantum",
@@ -74,6 +76,7 @@ use-magnetism = { version = "0.0.1", path = "../use-magnetism", optional = true 
 use-momentum = { version = "0.0.1", path = "../use-momentum", optional = true }
 use-motion = { version = "0.0.1", path = "../use-motion", optional = true }
 use-nuclear = { version = "0.0.1", path = "../use-nuclear", optional = true }
+use-orbit = { version = "0.0.1", path = "../use-orbit", optional = true }
 use-particle = { version = "0.0.1", path = "../use-particle", optional = true }
 use-power = { version = "0.0.1", path = "../use-power", optional = true }
 use-pressure = { version = "0.0.1", path = "../use-pressure", optional = true }

@@ -76,6 +76,11 @@ release = true
 version_group = "rustuse-physics"
 
 [[package]]
+name = "use-orbit"
+release = true
+version_group = "rustuse-physics"
+
+[[package]]
 name = "use-momentum"
 release = true
 version_group = "rustuse-physics"
@@ -127,6 +132,7 @@ changelog_include = [
   "use-pressure",
   "use-density",
   "use-gravity",
+  "use-orbit",
   "use-momentum",
   "use-relativity",
   "use-quantum",
