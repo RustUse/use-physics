@@ -24,6 +24,7 @@ body:
         - use-pressure focused crate
         - use-density focused crate
         - use-gravity focused crate
+        - use-momentum focused crate
         - use-thermodynamics focused crate
         - Workspace tooling or CI
         - Documentation or examples

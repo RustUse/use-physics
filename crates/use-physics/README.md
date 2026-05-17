@@ -6,27 +6,29 @@ Feature-gated facade for the focused `RustUse` physics crates.
 
 ```toml
 [dependencies]
-use-physics = { version = "0.0.1", default-features = false, features = ["force", "gravity"] }
+use-physics = { version = "0.0.1", default-features = false, features = ["gravity", "momentum"] }
 ```
 
 ## Foundation
 
-`use-physics` re-exports focused `f64`-first physics helpers behind opt-in features. The facade stays thin, mirrors the boundaries of the concrete crates, and exposes each enabled crate under a matching module such as `use_physics::gravity`.
+`use-physics` re-exports focused `f64`-first physics helpers behind opt-in features. The facade stays thin, mirrors the boundaries of the concrete crates, and exposes each enabled crate under a matching module such as `use_physics::gravity` or `use_physics::momentum`.
+
+When focused crates would otherwise collide at the root, the facade keeps explicit aliases. For example, enabling both `force` and `momentum` preserves `use-force`'s `impulse` export and re-exports the force-time helper from `use-momentum` as `momentum_impulse`.
 
 ## Example
 
 ```rust
-# #[cfg(all(feature = "force", feature = "gravity"))]
+# #[cfg(all(feature = "gravity", feature = "momentum"))]
 # fn main() {
-use use_physics::{escape_velocity, force};
+use use_physics::{escape_velocity, recoil_velocity};
 
-let applied_force = force(10.0, 2.0);
 let escape = escape_velocity(5.972e24, 6.371e6).unwrap();
+let recoil = recoil_velocity(1.0, 10.0, 5.0);
 
-assert_eq!(applied_force, 20.0);
 assert!(escape > 11_000.0);
+assert_eq!(recoil, Some(-2.0));
 # }
-# #[cfg(not(all(feature = "force", feature = "gravity")))]
+# #[cfg(not(all(feature = "gravity", feature = "momentum")))]
 # fn main() {}
 ```
 

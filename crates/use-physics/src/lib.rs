@@ -37,6 +37,27 @@ pub use use_gravity::{STANDARD_GRAVITY, weight};
 #[cfg(all(feature = "gravity", feature = "force"))]
 pub use use_gravity::weight as gravity_weight;
 
+#[cfg(feature = "momentum")]
+pub use use_momentum as momentum;
+
+#[cfg(all(feature = "momentum", not(feature = "force")))]
+pub use use_momentum::{
+    MovingMass, average_force_from_impulse, elastic_collision_velocities,
+    elastic_collision_velocity_a, elastic_collision_velocity_b,
+    final_velocity_after_sticking_collision, impulse, impulse_from_momentum_change,
+    mass_from_momentum, momentum, recoil_velocity, total_momentum, two_body_total_momentum,
+    velocity_from_momentum,
+};
+
+#[cfg(all(feature = "momentum", feature = "force"))]
+pub use use_momentum::{
+    MovingMass, average_force_from_impulse, elastic_collision_velocities,
+    elastic_collision_velocity_a, elastic_collision_velocity_b,
+    final_velocity_after_sticking_collision, impulse as momentum_impulse,
+    impulse_from_momentum_change, mass_from_momentum, momentum, recoil_velocity, total_momentum,
+    two_body_total_momentum, velocity_from_momentum,
+};
+
 #[cfg(feature = "motion")]
 pub use use_motion as motion;
 

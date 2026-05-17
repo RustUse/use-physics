@@ -8,6 +8,7 @@ members = [
     "crates/use-pressure",
     "crates/use-density",
     "crates/use-gravity",
+    "crates/use-momentum",
     "crates/use-thermodynamics",
 ]
 resolver = "2"
@@ -33,6 +34,7 @@ first-publish-candidates = [
     "use-pressure",
     "use-density",
     "use-gravity",
+    "use-momentum",
     "use-thermodynamics",
     "use-physics",
 ]

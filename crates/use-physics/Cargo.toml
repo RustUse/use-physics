@@ -26,6 +26,7 @@ power = ["dep:use-power"]
 pressure = ["dep:use-pressure"]
 density = ["dep:use-density"]
 gravity = ["dep:use-gravity"]
+momentum = ["dep:use-momentum"]
 thermodynamics = ["dep:use-thermodynamics"]
 full = [
     "motion",
@@ -35,6 +36,7 @@ full = [
     "pressure",
     "density",
     "gravity",
+    "momentum",
     "thermodynamics",
 ]
 
@@ -43,6 +45,7 @@ use-density = { version = "0.0.1", path = "../use-density", optional = true }
 use-energy = { version = "0.0.1", path = "../use-energy", optional = true }
 use-force = { version = "0.0.1", path = "../use-force", optional = true }
 use-gravity = { version = "0.0.1", path = "../use-gravity", optional = true }
+use-momentum = { version = "0.0.1", path = "../use-momentum", optional = true }
 use-motion = { version = "0.0.1", path = "../use-motion", optional = true }
 use-power = { version = "0.0.1", path = "../use-power", optional = true }
 use-pressure = { version = "0.0.1", path = "../use-pressure", optional = true }

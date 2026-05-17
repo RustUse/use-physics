@@ -157,7 +157,7 @@
             "command": "bash",
             "args": [
                 "-lc",
-                "set -euo pipefail; for crate in use-motion use-force use-energy use-power use-pressure use-density use-gravity use-thermodynamics; do cargo package --list -p \"$crate\"; cargo publish --dry-run --allow-dirty -p \"$crate\"; done"
+                "set -euo pipefail; for crate in use-motion use-force use-energy use-power use-pressure use-density use-gravity use-momentum use-thermodynamics; do cargo package --list -p \"$crate\"; cargo publish --dry-run --allow-dirty -p \"$crate\"; done"
             ],
             "windows": {
                 "command": "powershell",
@@ -166,7 +166,7 @@
                     "-ExecutionPolicy",
                     "Bypass",
                     "-Command",
-                    "$ErrorActionPreference = 'Stop'; $crates = @('use-motion','use-force','use-energy','use-power','use-pressure','use-density','use-gravity','use-thermodynamics'); foreach ($crate in $crates) { cargo package --list -p $crate; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; cargo publish --dry-run --allow-dirty -p $crate; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } }"
+                    "$ErrorActionPreference = 'Stop'; $crates = @('use-motion','use-force','use-energy','use-power','use-pressure','use-density','use-gravity','use-momentum','use-thermodynamics'); foreach ($crate in $crates) { cargo package --list -p $crate; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; cargo publish --dry-run --allow-dirty -p $crate; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } }"
                 ]
             },
             "problemMatcher": []
