@@ -135,6 +135,42 @@ pub use use_motion as motion;
 #[cfg(feature = "motion")]
 pub use use_motion::{MotionError, average_speed, displacement, distance, final_velocity};
 
+#[cfg(feature = "rotation")]
+pub use use_rotation as rotation;
+
+#[cfg(all(feature = "rotation", not(feature = "torque")))]
+pub use use_rotation::{
+    AngularState, RotatingBody, angular_acceleration, angular_acceleration_from_torque,
+    angular_displacement, angular_momentum, angular_velocity,
+    angular_velocity_from_angular_momentum, angular_velocity_from_rotational_kinetic_energy,
+    angular_velocity_from_tangential_speed, centripetal_acceleration_from_angular_velocity,
+    centripetal_acceleration_from_tangential_speed, degrees_from_radians, final_angular_velocity,
+    final_angular_velocity_from_displacement, final_angular_velocity_squared,
+    hollow_sphere_moment_of_inertia, point_mass_moment_of_inertia, radians_from_degrees,
+    radians_from_revolutions, revolutions_from_radians, rod_moment_of_inertia_about_center,
+    rod_moment_of_inertia_about_end, rotational_kinetic_energy, solid_disk_moment_of_inertia,
+    solid_sphere_moment_of_inertia, tangential_acceleration, tangential_speed,
+    thin_ring_moment_of_inertia,
+};
+
+#[cfg(all(feature = "rotation", feature = "torque"))]
+pub use use_rotation::{
+    AngularState, RotatingBody, angular_acceleration,
+    angular_acceleration_from_torque as rotation_angular_acceleration_from_torque,
+    angular_displacement, angular_momentum, angular_velocity,
+    angular_velocity_from_angular_momentum, angular_velocity_from_rotational_kinetic_energy,
+    angular_velocity_from_tangential_speed, centripetal_acceleration_from_angular_velocity,
+    centripetal_acceleration_from_tangential_speed, degrees_from_radians, final_angular_velocity,
+    final_angular_velocity_from_displacement, final_angular_velocity_squared,
+    hollow_sphere_moment_of_inertia,
+    point_mass_moment_of_inertia as rotation_point_mass_moment_of_inertia, radians_from_degrees,
+    radians_from_revolutions, revolutions_from_radians,
+    rod_moment_of_inertia_about_center as rotation_rod_moment_of_inertia_about_center,
+    rod_moment_of_inertia_about_end as rotation_rod_moment_of_inertia_about_end,
+    rotational_kinetic_energy, solid_disk_moment_of_inertia, solid_sphere_moment_of_inertia,
+    tangential_acceleration, tangential_speed, thin_ring_moment_of_inertia,
+};
+
 #[cfg(feature = "particle")]
 pub use use_particle as particle;
 

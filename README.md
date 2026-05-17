@@ -1,6 +1,6 @@
 # RustUse/use-physics
 
-Composable `f64`-first mechanics, torque, fluid flow, electricity, magnetism, gravity, momentum, particle metadata, and thermodynamics helpers for Rust.
+Composable `f64`-first mechanics, rotational motion, torque, fluid flow, electricity, magnetism, gravity, momentum, particle metadata, and thermodynamics helpers for Rust.
 
 ## Workspace crates
 
@@ -8,6 +8,7 @@ Composable `f64`-first mechanics, torque, fluid flow, electricity, magnetism, gr
 | -------------------- | ---------------------------- | ---------------------------------------------------- |
 | `use-physics`        | `crates/use-physics/`        | Feature-gated facade over the focused physics crates |
 | `use-motion`         | `crates/use-motion/`         | Basic kinematics helpers                             |
+| `use-rotation`       | `crates/use-rotation/`       | Rotational motion and angular dynamics helpers       |
 | `use-force`          | `crates/use-force/`          | Force, weight, and impulse helpers                   |
 | `use-torque`         | `crates/use-torque/`         | Torque, lever-arm, and rotational balance helpers    |
 | `use-energy`         | `crates/use-energy/`         | Work and mechanical energy helpers                   |
@@ -35,6 +36,7 @@ use use_electricity::voltage;
 use use_force::force;
 use use_momentum::momentum;
 use use_particle::{ParticleKind, charge};
+use use_rotation::angular_velocity;
 use use_torque::torque;
 use use_work::work_at_angle_degrees;
 
@@ -45,6 +47,7 @@ let energy = kinetic_energy(2.0, 3.0);
 let linear_momentum = momentum(2.0, 3.0);
 let electron_charge = charge(ParticleKind::Electron);
 let angled_work = work_at_angle_degrees(10.0, 2.0, 60.0);
+let spin_rate = angular_velocity(10.0, 2.0);
 
 assert_eq!(applied_force, 20.0);
 assert_eq!(applied_torque, Some(20.0));
@@ -53,6 +56,7 @@ assert_eq!(energy, 9.0);
 assert_eq!(linear_momentum, Some(6.0));
 assert_eq!(electron_charge.thirds, -3);
 assert_eq!(angled_work, Some(10.0));
+assert_eq!(spin_rate, Some(5.0));
 ```
 
 ## License
