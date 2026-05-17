@@ -20,6 +20,7 @@ all-features = true
 [features]
 default = ["full"]
 motion = ["dep:use-motion"]
+oscillation = ["dep:use-oscillation"]
 rotation = ["dep:use-rotation"]
 force = ["dep:use-force"]
 torque = ["dep:use-torque"]
@@ -44,6 +45,7 @@ radiation = ["dep:use-radiation"]
 thermodynamics = ["dep:use-thermodynamics"]
 full = [
     "motion",
+    "oscillation",
     "rotation",
     "force",
     "torque",
@@ -80,6 +82,7 @@ use-magnetism = { version = "0.0.1", path = "../use-magnetism", optional = true 
 use-momentum = { version = "0.0.1", path = "../use-momentum", optional = true }
 use-motion = { version = "0.0.1", path = "../use-motion", optional = true }
 use-nuclear = { version = "0.0.1", path = "../use-nuclear", optional = true }
+use-oscillation = { version = "0.0.1", path = "../use-oscillation", optional = true }
 use-orbit = { version = "0.0.1", path = "../use-orbit", optional = true }
 use-particle = { version = "0.0.1", path = "../use-particle", optional = true }
 use-plasma = { version = "0.0.1", path = "../use-plasma", optional = true }

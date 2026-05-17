@@ -2,6 +2,7 @@
 members = [
     "crates/use-physics",
     "crates/use-motion",
+    "crates/use-oscillation",
     "crates/use-rotation",
     "crates/use-force",
     "crates/use-torque",
@@ -42,6 +43,7 @@ publish = false
 versioning = "lockstep-0.x"
 first-publish-candidates = [
     "use-motion",
+    "use-oscillation",
     "use-rotation",
     "use-force",
     "use-torque",

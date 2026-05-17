@@ -2,6 +2,7 @@
 
 #[cfg(all(
     feature = "motion",
+    feature = "oscillation",
     feature = "rotation",
     feature = "force",
     feature = "torque",
@@ -28,9 +29,9 @@
 fn facade_exposes_all_namespace_features() {
     use use_physics::{
         density as _, electricity as _, electromagnetism as _, energy as _, fluid as _, force as _,
-        gravity as _, magnetism as _, momentum as _, motion as _, nuclear as _, particle as _,
-        plasma as _, power as _, pressure as _, quantum as _, radiation as _, relativity as _,
-        rotation as _, thermodynamics as _, torque as _,
+        gravity as _, magnetism as _, momentum as _, motion as _, nuclear as _, oscillation as _,
+        particle as _, plasma as _, power as _, pressure as _, quantum as _, radiation as _,
+        relativity as _, rotation as _, thermodynamics as _, torque as _,
     };
 
     let _ = use_physics::work::net_work;
@@ -44,6 +45,8 @@ fn facade_exposes_all_namespace_features() {
     let _ = use_physics::RADIATION_JOULES_PER_MEV;
     let _ = use_physics::RELATIVITY_SPEED_OF_LIGHT;
     let _ = use_physics::QUANTUM_SPEED_OF_LIGHT;
+    let _ = use_physics::oscillation_displacement;
+    let _ = use_physics::oscillation_spring_potential_energy;
 }
 
 #[cfg(all(
