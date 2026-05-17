@@ -23,6 +23,10 @@ name = "use-gravity"
 version = "0.0.1"
 
 [[package]]
+name = "use-magnetism"
+version = "0.0.1"
+
+[[package]]
 name = "use-momentum"
 version = "0.0.1"
 
@@ -43,6 +47,7 @@ dependencies = [
  "use-energy",
  "use-force",
  "use-gravity",
+ "use-magnetism",
  "use-momentum",
  "use-motion",
  "use-particle",

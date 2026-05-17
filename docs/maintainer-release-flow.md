@@ -28,7 +28,7 @@ Do not use `Release Publish Automation` for the first public crates.io wave.
 
 1. Confirm every focused crate plus `use-physics` are still the intended first-wave publishable crates.
 2. Run the full publish-readiness checks.
-3. Dry-run and then publish focused crates in this order: `use-motion`, `use-force`, `use-energy`, `use-work`, `use-power`, `use-electricity`, `use-pressure`, `use-density`, `use-gravity`, `use-momentum`, `use-particle`, `use-thermodynamics`.
+3. Dry-run and then publish focused crates in this order: `use-motion`, `use-force`, `use-energy`, `use-work`, `use-power`, `use-electricity`, `use-magnetism`, `use-pressure`, `use-density`, `use-gravity`, `use-momentum`, `use-particle`, `use-thermodynamics`.
 4. Wait for crates.io index propagation.
 5. Run `cargo publish --dry-run -p use-physics` or the manual `Facade Publish Readiness` workflow.
 6. Publish `use-physics`.

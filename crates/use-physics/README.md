@@ -6,27 +6,32 @@ Feature-gated facade for the focused `RustUse` physics crates.
 
 ```toml
 [dependencies]
-use-physics = { version = "0.0.1", default-features = false, features = ["gravity", "momentum", "electricity", "particle", "work"] }
+use-physics = { version = "0.0.1", default-features = false, features = ["gravity", "momentum", "electricity", "magnetism", "particle", "work"] }
 ```
 
 ## Foundation
 
-`use-physics` re-exports focused `f64`-first physics helpers behind opt-in features. The facade stays thin, mirrors the boundaries of the concrete crates, and exposes each enabled crate under a matching module such as `use_physics::gravity`, `use_physics::momentum`, `use_physics::electricity`, `use_physics::particle`, or `use_physics::work`.
+`use-physics` re-exports focused `f64`-first physics helpers behind opt-in features. The facade stays thin, mirrors the boundaries of the concrete crates, and exposes each enabled crate under a matching module such as `use_physics::gravity`, `use_physics::momentum`, `use_physics::electricity`, `use_physics::magnetism`, `use_physics::particle`, or `use_physics::work`.
 
 When focused crates would otherwise collide at the root, the facade keeps explicit aliases or module boundaries. For example, enabling both `force` and `momentum` preserves `use-force`'s `impulse` export and re-exports the force-time helper from `use-momentum` as `momentum_impulse`. Likewise, the full `use-work` surface stays available under `use_physics::work` while the existing root `work` export continues to come from `use-energy`.
 
 ## Example
 
 ```rust
-# #[cfg(feature = "work")]
+# #[cfg(feature = "magnetism")]
 # fn main() {
-use use_physics::{spring_work, work::work_at_angle_degrees};
+use use_physics::{MagneticField, magnetic_flux};
 
-assert_eq!(spring_work(100.0, 0.5, 0.0), Some(12.5));
-assert!((work_at_angle_degrees(10.0, 2.0, 60.0).unwrap() - 10.0).abs() < 1e-12);
+assert_eq!(magnetic_flux(2.0, 3.0, 0.0), Some(6.0));
+assert_eq!(
+	MagneticField::new(3.0)
+		.and_then(|field| field.energy_density())
+		.map(|value| value > 0.0),
+	Some(true)
+);
 
 # }
-# #[cfg(not(feature = "work"))]
+# #[cfg(not(feature = "magnetism"))]
 # fn main() {}
 ```
 
