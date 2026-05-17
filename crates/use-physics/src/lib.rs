@@ -21,6 +21,22 @@ pub use use_force as force;
 #[cfg(feature = "force")]
 pub use use_force::{STANDARD_GRAVITY, earth_weight, force, impulse, weight};
 
+#[cfg(feature = "gravity")]
+pub use use_gravity as gravity;
+
+#[cfg(feature = "gravity")]
+pub use use_gravity::{
+    GRAVITATIONAL_CONSTANT, GravityBody, circular_orbital_period, circular_orbital_velocity,
+    escape_velocity, gravitational_acceleration, gravitational_force,
+    gravitational_potential_energy, near_surface_potential_energy, standard_weight,
+};
+
+#[cfg(all(feature = "gravity", not(feature = "force")))]
+pub use use_gravity::{STANDARD_GRAVITY, weight};
+
+#[cfg(all(feature = "gravity", feature = "force"))]
+pub use use_gravity::weight as gravity_weight;
+
 #[cfg(feature = "motion")]
 pub use use_motion as motion;
 

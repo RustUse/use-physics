@@ -15,6 +15,10 @@ name = "use-force"
 version = "0.0.1"
 
 [[package]]
+name = "use-gravity"
+version = "0.0.1"
+
+[[package]]
 name = "use-motion"
 version = "0.0.1"
 
@@ -25,6 +29,7 @@ dependencies = [
  "use-density",
  "use-energy",
  "use-force",
+ "use-gravity",
  "use-motion",
  "use-power",
  "use-pressure",

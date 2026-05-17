@@ -6,27 +6,27 @@ Feature-gated facade for the focused `RustUse` physics crates.
 
 ```toml
 [dependencies]
-use-physics = { version = "0.0.1", default-features = false, features = ["force", "energy"] }
+use-physics = { version = "0.0.1", default-features = false, features = ["force", "gravity"] }
 ```
 
 ## Foundation
 
-`use-physics` re-exports focused `f64`-first physics helpers behind opt-in features. The facade stays thin and mirrors the boundaries of the concrete crates.
+`use-physics` re-exports focused `f64`-first physics helpers behind opt-in features. The facade stays thin, mirrors the boundaries of the concrete crates, and exposes each enabled crate under a matching module such as `use_physics::gravity`.
 
 ## Example
 
 ```rust
-# #[cfg(all(feature = "force", feature = "energy"))]
+# #[cfg(all(feature = "force", feature = "gravity"))]
 # fn main() {
-use use_physics::{force, kinetic_energy};
+use use_physics::{escape_velocity, force};
 
 let applied_force = force(10.0, 2.0);
-let energy = kinetic_energy(2.0, 3.0);
+let escape = escape_velocity(5.972e24, 6.371e6).unwrap();
 
 assert_eq!(applied_force, 20.0);
-assert_eq!(energy, 9.0);
+assert!(escape > 11_000.0);
 # }
-# #[cfg(not(all(feature = "force", feature = "energy")))]
+# #[cfg(not(all(feature = "force", feature = "gravity")))]
 # fn main() {}
 ```
 

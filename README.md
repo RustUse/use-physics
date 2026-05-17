@@ -1,6 +1,6 @@
 # RustUse/use-physics
 
-Composable `f64`-first mechanics and thermodynamics helpers for Rust.
+Composable `f64`-first mechanics, gravity, and thermodynamics helpers for Rust.
 
 ## Workspace crates
 
@@ -13,6 +13,7 @@ Composable `f64`-first mechanics and thermodynamics helpers for Rust.
 | `use-power`          | `crates/use-power/`          | Average, mechanical, and electrical power helpers    |
 | `use-pressure`       | `crates/use-pressure/`       | Pressure and hydrostatic pressure helpers            |
 | `use-density`        | `crates/use-density/`        | Density, mass, and volume helpers                    |
+| `use-gravity`        | `crates/use-gravity/`        | Gravity, orbit, and gravitational energy helpers     |
 | `use-thermodynamics` | `crates/use-thermodynamics/` | Ideal gas and heat-energy helpers                    |
 
 ## Installation

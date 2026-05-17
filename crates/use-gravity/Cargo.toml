@@ -1,0 +1,22 @@
+[package]
+name = "use-gravity"
+description = "Gravity, orbit, and gravitational energy helpers for RustUse"
+publish = true
+authors.workspace = true
+version.workspace = true
+edition.workspace = true
+homepage.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+readme = "README.md"
+documentation = "https://docs.rs/use-gravity"
+keywords = ["gravity", "orbit", "escape-velocity", "physics", "orbital"]
+categories = ["science", "mathematics"]
+
+[[example]]
+name = "use-gravity-basic-usage"
+path = "examples/basic_usage.rs"
+
+[lints]
+workspace = true

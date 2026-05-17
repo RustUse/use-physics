@@ -7,6 +7,19 @@ pub use crate::{kinetic_energy, potential_energy, work};
 #[cfg(feature = "force")]
 pub use crate::{STANDARD_GRAVITY, earth_weight, force, impulse, weight};
 
+#[cfg(feature = "gravity")]
+pub use crate::{
+    GRAVITATIONAL_CONSTANT, GravityBody, circular_orbital_period, circular_orbital_velocity,
+    escape_velocity, gravitational_acceleration, gravitational_force,
+    gravitational_potential_energy, near_surface_potential_energy, standard_weight,
+};
+
+#[cfg(all(feature = "gravity", not(feature = "force")))]
+pub use crate::{STANDARD_GRAVITY, weight};
+
+#[cfg(all(feature = "gravity", feature = "force"))]
+pub use crate::gravity_weight;
+
 #[cfg(feature = "motion")]
 pub use crate::{MotionError, average_speed, displacement, distance, final_velocity};
 
