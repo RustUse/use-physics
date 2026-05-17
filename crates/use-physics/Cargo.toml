@@ -22,6 +22,7 @@ default = ["full"]
 motion = ["dep:use-motion"]
 force = ["dep:use-force"]
 energy = ["dep:use-energy"]
+work = ["dep:use-work"]
 power = ["dep:use-power"]
 electricity = ["dep:use-electricity"]
 pressure = ["dep:use-pressure"]
@@ -34,6 +35,7 @@ full = [
     "motion",
     "force",
     "energy",
+    "work",
     "power",
     "electricity",
     "pressure",
@@ -56,6 +58,7 @@ use-particle = { version = "0.0.1", path = "../use-particle", optional = true }
 use-power = { version = "0.0.1", path = "../use-power", optional = true }
 use-pressure = { version = "0.0.1", path = "../use-pressure", optional = true }
 use-thermodynamics = { version = "0.0.1", path = "../use-thermodynamics", optional = true }
+use-work = { version = "0.0.1", path = "../use-work", optional = true }
 
 [[example]]
 name = "facade_force_energy"

@@ -6,29 +6,27 @@ Feature-gated facade for the focused `RustUse` physics crates.
 
 ```toml
 [dependencies]
-use-physics = { version = "0.0.1", default-features = false, features = ["gravity", "momentum", "electricity", "particle"] }
+use-physics = { version = "0.0.1", default-features = false, features = ["gravity", "momentum", "electricity", "particle", "work"] }
 ```
 
 ## Foundation
 
-`use-physics` re-exports focused `f64`-first physics helpers behind opt-in features. The facade stays thin, mirrors the boundaries of the concrete crates, and exposes each enabled crate under a matching module such as `use_physics::gravity`, `use_physics::momentum`, `use_physics::electricity`, or `use_physics::particle`.
+`use-physics` re-exports focused `f64`-first physics helpers behind opt-in features. The facade stays thin, mirrors the boundaries of the concrete crates, and exposes each enabled crate under a matching module such as `use_physics::gravity`, `use_physics::momentum`, `use_physics::electricity`, `use_physics::particle`, or `use_physics::work`.
 
-When focused crates would otherwise collide at the root, the facade keeps explicit aliases. For example, enabling both `force` and `momentum` preserves `use-force`'s `impulse` export and re-exports the force-time helper from `use-momentum` as `momentum_impulse`.
+When focused crates would otherwise collide at the root, the facade keeps explicit aliases or module boundaries. For example, enabling both `force` and `momentum` preserves `use-force`'s `impulse` export and re-exports the force-time helper from `use-momentum` as `momentum_impulse`. Likewise, the full `use-work` surface stays available under `use_physics::work` while the existing root `work` export continues to come from `use-energy`.
 
 ## Example
 
 ```rust
-# #[cfg(all(feature = "gravity", feature = "momentum"))]
+# #[cfg(feature = "work")]
 # fn main() {
-use use_physics::{escape_velocity, recoil_velocity};
+use use_physics::{spring_work, work::work_at_angle_degrees};
 
-let escape = escape_velocity(5.972e24, 6.371e6).unwrap();
-let recoil = recoil_velocity(1.0, 10.0, 5.0);
+assert_eq!(spring_work(100.0, 0.5, 0.0), Some(12.5));
+assert!((work_at_angle_degrees(10.0, 2.0, 60.0).unwrap() - 10.0).abs() < 1e-12);
 
-assert!(escape > 11_000.0);
-assert_eq!(recoil, Some(-2.0));
 # }
-# #[cfg(not(all(feature = "gravity", feature = "momentum")))]
+# #[cfg(not(feature = "work"))]
 # fn main() {}
 ```
 

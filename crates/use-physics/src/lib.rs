@@ -15,6 +15,19 @@ pub use use_energy as energy;
 #[cfg(feature = "energy")]
 pub use use_energy::{kinetic_energy, potential_energy, work};
 
+#[cfg(feature = "work")]
+pub mod work {
+    pub use use_work::*;
+}
+
+#[cfg(feature = "work")]
+pub use use_work::{
+    ConstantForceWork, displacement_from_work, final_kinetic_energy_from_work, force_from_work,
+    initial_kinetic_energy_from_work, net_work, spring_potential_energy, spring_work,
+    work_against_gravity, work_at_angle, work_at_angle_degrees, work_by_friction, work_by_gravity,
+    work_from_force_samples, work_from_kinetic_energy_change,
+};
+
 #[cfg(feature = "electricity")]
 pub use use_electricity as electricity;
 

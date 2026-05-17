@@ -10,6 +10,7 @@ Composable `f64`-first mechanics, electricity, gravity, momentum, particle metad
 | `use-motion`         | `crates/use-motion/`         | Basic kinematics helpers                             |
 | `use-force`          | `crates/use-force/`          | Force, weight, and impulse helpers                   |
 | `use-energy`         | `crates/use-energy/`         | Work and mechanical energy helpers                   |
+| `use-work`           | `crates/use-work/`           | Mechanical work and work-energy relation helpers     |
 | `use-power`          | `crates/use-power/`          | Average, mechanical, and electrical power helpers    |
 | `use-electricity`    | `crates/use-electricity/`    | Electricity and simple circuit helpers               |
 | `use-pressure`       | `crates/use-pressure/`       | Pressure and hydrostatic pressure helpers            |
@@ -31,18 +32,21 @@ use use_electricity::voltage;
 use use_force::force;
 use use_momentum::momentum;
 use use_particle::{ParticleKind, charge};
+use use_work::work_at_angle_degrees;
 
 let applied_force = force(10.0, 2.0);
 let circuit_voltage = voltage(2.0, 5.0);
 let energy = kinetic_energy(2.0, 3.0);
 let linear_momentum = momentum(2.0, 3.0);
 let electron_charge = charge(ParticleKind::Electron);
+let angled_work = work_at_angle_degrees(10.0, 2.0, 60.0);
 
 assert_eq!(applied_force, 20.0);
 assert_eq!(circuit_voltage, Some(10.0));
 assert_eq!(energy, 9.0);
 assert_eq!(linear_momentum, Some(6.0));
 assert_eq!(electron_charge.thirds, -3);
+assert_eq!(angled_work, Some(10.0));
 ```
 
 ## License
