@@ -36,6 +36,11 @@ release = true
 version_group = "rustuse-physics"
 
 [[package]]
+name = "use-statics"
+release = true
+version_group = "rustuse-physics"
+
+[[package]]
 name = "use-energy"
 release = true
 version_group = "rustuse-physics"
@@ -149,6 +154,7 @@ changelog_include = [
   "use-rigidbody",
   "use-force",
   "use-torque",
+  "use-statics",
   "use-energy",
   "use-work",
   "use-power",

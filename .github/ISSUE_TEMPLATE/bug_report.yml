@@ -23,6 +23,7 @@ body:
         - use-rigidbody focused crate
         - use-force focused crate
         - use-torque focused crate
+        - use-statics focused crate
         - use-energy focused crate
         - use-work focused crate
         - use-power focused crate

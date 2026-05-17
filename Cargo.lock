@@ -89,6 +89,7 @@ dependencies = [
  "use-relativity",
  "use-rigidbody",
  "use-rotation",
+ "use-statics",
  "use-thermodynamics",
  "use-torque",
  "use-work",
@@ -124,6 +125,10 @@ version = "0.0.1"
 
 [[package]]
 name = "use-rotation"
+version = "0.0.1"
+
+[[package]]
+name = "use-statics"
 version = "0.0.1"
 
 [[package]]

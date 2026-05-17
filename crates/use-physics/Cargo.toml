@@ -25,6 +25,7 @@ rotation = ["dep:use-rotation"]
 rigidbody = ["dep:use-rigidbody"]
 force = ["dep:use-force"]
 torque = ["dep:use-torque"]
+statics = ["dep:use-statics"]
 energy = ["dep:use-energy"]
 collision = ["dep:use-collision"]
 work = ["dep:use-work"]
@@ -52,6 +53,7 @@ full = [
     "rigidbody",
     "force",
     "torque",
+    "statics",
     "energy",
     "collision",
     "work",
@@ -98,6 +100,7 @@ use-radiation = { version = "0.0.1", path = "../use-radiation", optional = true 
 use-relativity = { version = "0.0.1", path = "../use-relativity", optional = true }
 use-rigidbody = { version = "0.0.1", path = "../use-rigidbody", optional = true }
 use-rotation = { version = "0.0.1", path = "../use-rotation", optional = true }
+use-statics = { version = "0.0.1", path = "../use-statics", optional = true }
 use-thermodynamics = { version = "0.0.1", path = "../use-thermodynamics", optional = true }
 use-torque = { version = "0.0.1", path = "../use-torque", optional = true }
 use-work = { version = "0.0.1", path = "../use-work", optional = true }

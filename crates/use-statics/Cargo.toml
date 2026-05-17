@@ -1,0 +1,22 @@
+[package]
+name = "use-statics"
+description = "Small statics helpers for RustUse"
+publish = true
+authors.workspace = true
+version.workspace = true
+edition.workspace = true
+homepage.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+readme = "README.md"
+documentation = "https://docs.rs/use-statics"
+keywords = ["physics", "statics", "equilibrium", "friction", "beam"]
+categories = ["science", "mathematics"]
+
+[[example]]
+name = "use-statics-basic-usage"
+path = "examples/basic_usage.rs"
+
+[lints]
+workspace = true

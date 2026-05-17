@@ -1,6 +1,6 @@
 # RustUse/use-physics
 
-Composable `f64`-first mechanics, oscillation, rigid-body mechanics, rotational motion, torque, fluid flow, electricity,
+Composable `f64`-first mechanics, oscillation, rigid-body mechanics, rotational motion, torque, statics, fluid flow, electricity,
 magnetism, electromagnetism, plasma physics, gravity, orbital mechanics, momentum, collisions,
 special relativity, quantum physics, particle metadata, nuclear physics, radiation physics, and
 thermodynamics helpers for Rust.
@@ -16,6 +16,7 @@ thermodynamics helpers for Rust.
 | `use-rigidbody`        | `crates/use-rigidbody/`        | Rigid-body mass properties and scalar impulse helpers |
 | `use-force`            | `crates/use-force/`            | Force, weight, and impulse helpers                    |
 | `use-torque`           | `crates/use-torque/`           | Torque, lever-arm, and rotational balance helpers     |
+| `use-statics`          | `crates/use-statics/`          | Small statics, friction, and support reaction helpers |
 | `use-energy`           | `crates/use-energy/`           | Work and mechanical energy helpers                    |
 | `use-work`             | `crates/use-work/`             | Mechanical work and work-energy relation helpers      |
 | `use-power`            | `crates/use-power/`            | Average, mechanical, and electrical power helpers     |

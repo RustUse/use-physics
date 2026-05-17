@@ -7,6 +7,7 @@
     feature = "rigidbody",
     feature = "force",
     feature = "torque",
+    feature = "statics",
     feature = "energy",
     feature = "collision",
     feature = "work",
@@ -33,7 +34,7 @@ fn facade_exposes_all_namespace_features() {
         collision as _, density as _, electricity as _, electromagnetism as _, energy as _,
         fluid as _, force as _, gravity as _, magnetism as _, momentum as _, motion as _,
         nuclear as _, oscillation as _, particle as _, plasma as _, power as _, pressure as _,
-        quantum as _, radiation as _, relativity as _, rigidbody as _, rotation as _,
+        quantum as _, radiation as _, relativity as _, rigidbody as _, rotation as _, statics as _,
         thermodynamics as _, torque as _,
     };
 
@@ -56,6 +57,7 @@ fn facade_exposes_all_namespace_features() {
     let _ = use_physics::rigidbody_rod_moment_of_inertia_about_center;
     let _ = use_physics::rigidbody_rotational_kinetic_energy;
     let _ = use_physics::rigidbody_solid_disk_moment_of_inertia;
+    let _ = use_physics::statics_is_rotational_equilibrium;
 }
 
 #[cfg(all(
@@ -359,6 +361,45 @@ fn facade_supports_quantum_only() {
     assert_eq!(use_physics::SPEED_OF_LIGHT, 299_792_458.0);
 }
 
+#[cfg(all(
+    feature = "statics",
+    not(feature = "motion"),
+    not(feature = "oscillation"),
+    not(feature = "rotation"),
+    not(feature = "rigidbody"),
+    not(feature = "force"),
+    not(feature = "torque"),
+    not(feature = "energy"),
+    not(feature = "collision"),
+    not(feature = "work"),
+    not(feature = "power"),
+    not(feature = "electricity"),
+    not(feature = "magnetism"),
+    not(feature = "electromagnetism"),
+    not(feature = "plasma"),
+    not(feature = "pressure"),
+    not(feature = "fluid"),
+    not(feature = "density"),
+    not(feature = "gravity"),
+    not(feature = "orbit"),
+    not(feature = "momentum"),
+    not(feature = "relativity"),
+    not(feature = "quantum"),
+    not(feature = "particle"),
+    not(feature = "nuclear"),
+    not(feature = "radiation"),
+    not(feature = "thermodynamics")
+))]
+#[test]
+fn facade_supports_statics_only() {
+    assert_eq!(use_physics::net_force_1d(&[10.0, -4.0, -6.0]), Some(0.0));
+    assert_eq!(use_physics::moment_2d(2.0, 0.0, 0.0, 10.0), Some(20.0));
+    assert_eq!(
+        use_physics::simply_supported_point_load_reactions(10.0, 100.0, 5.0),
+        Some((50.0, 50.0))
+    );
+}
+
 #[cfg(all(feature = "force", feature = "momentum"))]
 #[test]
 fn facade_renames_conflicting_impulse_exports() {
@@ -391,6 +432,19 @@ fn facade_renames_conflicting_rotation_exports() {
     assert_eq!(
         use_physics::rotation_point_mass_moment_of_inertia(2.0, 3.0),
         Some(18.0)
+    );
+}
+
+#[cfg(all(feature = "statics", feature = "torque"))]
+#[test]
+fn facade_renames_conflicting_statics_rotational_equilibrium_export() {
+    assert_eq!(
+        use_physics::is_rotational_equilibrium(&[10.0, -10.0], 0.0),
+        Some(true)
+    );
+    assert_eq!(
+        use_physics::statics_is_rotational_equilibrium(&[10.0, -10.0], 0.0),
+        Some(true)
     );
 }
 
