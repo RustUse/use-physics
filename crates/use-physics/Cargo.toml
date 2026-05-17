@@ -40,6 +40,7 @@ relativity = ["dep:use-relativity"]
 quantum = ["dep:use-quantum"]
 particle = ["dep:use-particle"]
 nuclear = ["dep:use-nuclear"]
+radiation = ["dep:use-radiation"]
 thermodynamics = ["dep:use-thermodynamics"]
 full = [
     "motion",
@@ -63,6 +64,7 @@ full = [
     "quantum",
     "particle",
     "nuclear",
+    "radiation",
     "thermodynamics",
 ]
 
@@ -84,6 +86,7 @@ use-plasma = { version = "0.0.1", path = "../use-plasma", optional = true }
 use-power = { version = "0.0.1", path = "../use-power", optional = true }
 use-pressure = { version = "0.0.1", path = "../use-pressure", optional = true }
 use-quantum = { version = "0.0.1", path = "../use-quantum", optional = true }
+use-radiation = { version = "0.0.1", path = "../use-radiation", optional = true }
 use-relativity = { version = "0.0.1", path = "../use-relativity", optional = true }
 use-rotation = { version = "0.0.1", path = "../use-rotation", optional = true }
 use-thermodynamics = { version = "0.0.1", path = "../use-thermodynamics", optional = true }

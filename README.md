@@ -2,8 +2,8 @@
 
 Composable `f64`-first mechanics, rotational motion, torque, fluid flow, electricity,
 magnetism, electromagnetism, plasma physics, gravity, orbital mechanics, momentum, special
-relativity, quantum physics, particle metadata, nuclear physics, and thermodynamics helpers for
-Rust.
+relativity, quantum physics, particle metadata, nuclear physics, radiation physics, and
+thermodynamics helpers for Rust.
 
 ## Workspace crates
 
@@ -31,6 +31,7 @@ Rust.
 | `use-quantum`          | `crates/use-quantum/`          | Quantum physics scalar helpers                       |
 | `use-particle`         | `crates/use-particle/`         | Particle classification and metadata helpers         |
 | `use-nuclear`          | `crates/use-nuclear/`          | Radioactive decay and nuclear scalar helpers         |
+| `use-radiation`        | `crates/use-radiation/`        | Radiation intensity, dose, and attenuation helpers   |
 | `use-thermodynamics`   | `crates/use-thermodynamics/`   | Ideal gas and heat-energy helpers                    |
 
 ## Installation

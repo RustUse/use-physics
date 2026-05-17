@@ -38,6 +38,7 @@ body:
         - use-quantum focused crate
         - use-particle focused crate
         - use-nuclear focused crate
+        - use-radiation focused crate
         - use-thermodynamics focused crate
         - Workspace tooling or CI
         - Documentation or examples

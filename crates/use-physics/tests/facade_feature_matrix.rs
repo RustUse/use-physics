@@ -21,6 +21,7 @@
     feature = "quantum",
     feature = "particle",
     feature = "nuclear",
+    feature = "radiation",
     feature = "thermodynamics"
 ))]
 #[test]
@@ -28,8 +29,8 @@ fn facade_exposes_all_namespace_features() {
     use use_physics::{
         density as _, electricity as _, electromagnetism as _, energy as _, fluid as _, force as _,
         gravity as _, magnetism as _, momentum as _, motion as _, nuclear as _, particle as _,
-        plasma as _, power as _, pressure as _, quantum as _, relativity as _, rotation as _,
-        thermodynamics as _, torque as _,
+        plasma as _, power as _, pressure as _, quantum as _, radiation as _, relativity as _,
+        rotation as _, thermodynamics as _, torque as _,
     };
 
     let _ = use_physics::work::net_work;
@@ -39,6 +40,8 @@ fn facade_exposes_all_namespace_features() {
     let _ = use_physics::PLASMA_ELECTRON_MASS;
     let _ = use_physics::PLASMA_VACUUM_PERMEABILITY;
     let _ = use_physics::PLASMA_VACUUM_PERMITTIVITY;
+    let _ = use_physics::RADIATION_SPEED_OF_LIGHT;
+    let _ = use_physics::RADIATION_JOULES_PER_MEV;
     let _ = use_physics::RELATIVITY_SPEED_OF_LIGHT;
     let _ = use_physics::QUANTUM_SPEED_OF_LIGHT;
 }
@@ -62,6 +65,7 @@ fn facade_exposes_all_namespace_features() {
     not(feature = "relativity"),
     not(feature = "particle"),
     not(feature = "nuclear"),
+    not(feature = "radiation"),
     not(feature = "thermodynamics")
 ))]
 #[test]
@@ -89,6 +93,7 @@ fn facade_supports_force_only() {
     not(feature = "relativity"),
     not(feature = "particle"),
     not(feature = "nuclear"),
+    not(feature = "radiation"),
     not(feature = "thermodynamics")
 ))]
 #[test]
@@ -117,6 +122,7 @@ fn facade_supports_momentum_only() {
     not(feature = "relativity"),
     not(feature = "particle"),
     not(feature = "nuclear"),
+    not(feature = "radiation"),
     not(feature = "thermodynamics")
 ))]
 #[test]
@@ -148,6 +154,7 @@ fn facade_supports_rotation_only() {
     not(feature = "relativity"),
     not(feature = "particle"),
     not(feature = "nuclear"),
+    not(feature = "radiation"),
     not(feature = "thermodynamics")
 ))]
 #[test]
@@ -178,12 +185,49 @@ fn facade_supports_electromagnetism_only() {
     not(feature = "momentum"),
     not(feature = "relativity"),
     not(feature = "particle"),
+    not(feature = "radiation"),
     not(feature = "thermodynamics")
 ))]
 #[test]
 fn facade_supports_nuclear_only() {
     assert_eq!(use_physics::activity(2.0, 10.0), Some(20.0));
     assert_eq!(use_physics::neutron_count(4, 2), Some(2));
+}
+
+#[cfg(all(
+    feature = "radiation",
+    not(feature = "motion"),
+    not(feature = "rotation"),
+    not(feature = "force"),
+    not(feature = "torque"),
+    not(feature = "energy"),
+    not(feature = "work"),
+    not(feature = "power"),
+    not(feature = "electricity"),
+    not(feature = "magnetism"),
+    not(feature = "electromagnetism"),
+    not(feature = "plasma"),
+    not(feature = "pressure"),
+    not(feature = "fluid"),
+    not(feature = "density"),
+    not(feature = "gravity"),
+    not(feature = "orbit"),
+    not(feature = "momentum"),
+    not(feature = "relativity"),
+    not(feature = "quantum"),
+    not(feature = "particle"),
+    not(feature = "nuclear"),
+    not(feature = "thermodynamics")
+))]
+#[test]
+fn facade_supports_radiation_only() {
+    assert_eq!(use_physics::intensity(10.0, 2.0), Some(5.0));
+    assert_eq!(
+        use_physics::half_value_layer(core::f64::consts::LN_2),
+        Some(1.0)
+    );
+    assert_eq!(use_physics::RADIATION_SPEED_OF_LIGHT, 299_792_458.0);
+    assert_eq!(use_physics::RADIATION_JOULES_PER_MEV, 1.602_176_634e-13);
 }
 
 #[cfg(all(
@@ -206,6 +250,7 @@ fn facade_supports_nuclear_only() {
     not(feature = "momentum"),
     not(feature = "particle"),
     not(feature = "nuclear"),
+    not(feature = "radiation"),
     not(feature = "thermodynamics")
 ))]
 #[test]
@@ -242,6 +287,7 @@ fn facade_supports_relativity_only() {
     not(feature = "relativity"),
     not(feature = "particle"),
     not(feature = "nuclear"),
+    not(feature = "radiation"),
     not(feature = "thermodynamics")
 ))]
 #[test]

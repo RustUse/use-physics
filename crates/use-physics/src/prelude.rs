@@ -280,6 +280,18 @@ pub use crate::{
     remaining_quantity_from_half_life, specific_activity,
 };
 
+#[cfg(feature = "radiation")]
+pub use crate::{
+    Dose, RADIATION_JOULES_PER_MEV, RADIATION_SPEED_OF_LIGHT, RadiationBeam, RadiationKind, Shield,
+    absorbed_dose, absorbed_energy_from_dose, accumulated_dose, attenuated_intensity,
+    default_radiation_weighting_factor, dose_rate, effective_dose, energy_fluence, equivalent_dose,
+    fluence, fluence_rate, half_value_layer, intensity, inverse_square_intensity, is_ionizing,
+    is_particle_radiation, is_photon_radiation, isotropic_intensity,
+    linear_attenuation_from_mass_attenuation, mass_attenuation_from_linear_attenuation,
+    photon_flux_density, photon_flux_from_power, required_shield_thickness, tenth_value_layer,
+    total_effective_dose, transmitted_fraction,
+};
+
 #[cfg(feature = "power")]
 pub use crate::{PowerError, average_power, electrical_power, mechanical_power};
 
