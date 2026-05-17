@@ -34,6 +34,7 @@ fluid = ["dep:use-fluid"]
 density = ["dep:use-density"]
 gravity = ["dep:use-gravity"]
 momentum = ["dep:use-momentum"]
+relativity = ["dep:use-relativity"]
 particle = ["dep:use-particle"]
 nuclear = ["dep:use-nuclear"]
 thermodynamics = ["dep:use-thermodynamics"]
@@ -53,6 +54,7 @@ full = [
     "density",
     "gravity",
     "momentum",
+    "relativity",
     "particle",
     "nuclear",
     "thermodynamics",
@@ -73,6 +75,7 @@ use-nuclear = { version = "0.0.1", path = "../use-nuclear", optional = true }
 use-particle = { version = "0.0.1", path = "../use-particle", optional = true }
 use-power = { version = "0.0.1", path = "../use-power", optional = true }
 use-pressure = { version = "0.0.1", path = "../use-pressure", optional = true }
+use-relativity = { version = "0.0.1", path = "../use-relativity", optional = true }
 use-rotation = { version = "0.0.1", path = "../use-rotation", optional = true }
 use-thermodynamics = { version = "0.0.1", path = "../use-thermodynamics", optional = true }
 use-torque = { version = "0.0.1", path = "../use-torque", optional = true }

@@ -100,6 +100,19 @@ pub use use_electromagnetism::SPEED_OF_LIGHT;
 #[cfg(all(feature = "electromagnetism", feature = "nuclear"))]
 pub use use_electromagnetism::SPEED_OF_LIGHT as ELECTROMAGNETISM_SPEED_OF_LIGHT;
 
+#[cfg(all(
+    feature = "relativity",
+    not(feature = "electromagnetism"),
+    not(feature = "nuclear")
+))]
+pub use use_relativity::SPEED_OF_LIGHT;
+
+#[cfg(all(
+    feature = "relativity",
+    any(feature = "electromagnetism", feature = "nuclear")
+))]
+pub use use_relativity::SPEED_OF_LIGHT as RELATIVITY_SPEED_OF_LIGHT;
+
 #[cfg(feature = "force")]
 pub use use_force as force;
 
@@ -155,6 +168,19 @@ pub use use_momentum::{
     final_velocity_after_sticking_collision, impulse as momentum_impulse,
     impulse_from_momentum_change, mass_from_momentum, momentum, recoil_velocity, total_momentum,
     two_body_total_momentum, velocity_from_momentum,
+};
+
+#[cfg(feature = "relativity")]
+pub use use_relativity as relativity;
+
+#[cfg(feature = "relativity")]
+pub use use_relativity::{
+    RelativisticBody, beta, beta_from_rapidity, contracted_length, dilated_time,
+    doppler_factor_longitudinal_from_beta, energy_momentum_relation, is_subluminal_speed,
+    lorentz_factor, lorentz_factor_from_beta, mass_from_rest_energy,
+    observed_frequency_longitudinal, proper_length, proper_time, rapidity_from_beta,
+    relativistic_kinetic_energy, relativistic_momentum, rest_energy, rest_mass_from_momentum_speed,
+    speed_from_beta, speed_from_rapidity, total_energy, velocity_addition,
 };
 
 #[cfg(feature = "motion")]
