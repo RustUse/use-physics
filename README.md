@@ -1,6 +1,6 @@
 # RustUse/use-physics
 
-Composable `f64`-first mechanics, electricity, gravity, momentum, particle metadata, and thermodynamics helpers for Rust.
+Composable `f64`-first mechanics, fluid flow, electricity, magnetism, gravity, momentum, particle metadata, and thermodynamics helpers for Rust.
 
 ## Workspace crates
 
@@ -12,7 +12,9 @@ Composable `f64`-first mechanics, electricity, gravity, momentum, particle metad
 | `use-energy`         | `crates/use-energy/`         | Work and mechanical energy helpers                   |
 | `use-work`           | `crates/use-work/`           | Mechanical work and work-energy relation helpers     |
 | `use-power`          | `crates/use-power/`          | Average, mechanical, and electrical power helpers    |
+| `use-fluid`          | `crates/use-fluid/`          | Fluid mechanics scalar helpers                       |
 | `use-electricity`    | `crates/use-electricity/`    | Electricity and simple circuit helpers               |
+| `use-magnetism`      | `crates/use-magnetism/`      | Magnetism and magnetic-field helpers                 |
 | `use-pressure`       | `crates/use-pressure/`       | Pressure and hydrostatic pressure helpers            |
 | `use-density`        | `crates/use-density/`        | Density, mass, and volume helpers                    |
 | `use-gravity`        | `crates/use-gravity/`        | Gravity, orbit, and gravitational energy helpers     |

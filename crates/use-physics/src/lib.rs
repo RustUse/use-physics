@@ -15,6 +15,25 @@ pub use use_energy as energy;
 #[cfg(feature = "energy")]
 pub use use_energy::{kinetic_energy, potential_energy, work};
 
+#[cfg(feature = "fluid")]
+pub use use_fluid as fluid;
+
+#[cfg(all(feature = "fluid", not(feature = "pressure")))]
+pub use use_fluid::{
+    Fluid, PipeFlow, absolute_pressure, bernoulli_pressure, buoyant_force, continuity_area,
+    continuity_velocity, displaced_volume_from_buoyant_force, drag_force, dynamic_pressure,
+    dynamic_viscosity, hydrostatic_pressure, kinematic_viscosity, mass_flow_rate, reynolds_number,
+    velocity_from_flow_rate, volumetric_flow_rate,
+};
+
+#[cfg(all(feature = "fluid", feature = "pressure"))]
+pub use use_fluid::{
+    Fluid, PipeFlow, absolute_pressure, bernoulli_pressure, buoyant_force, continuity_area,
+    continuity_velocity, displaced_volume_from_buoyant_force, drag_force, dynamic_pressure,
+    dynamic_viscosity, hydrostatic_pressure as fluid_hydrostatic_pressure, kinematic_viscosity,
+    mass_flow_rate, reynolds_number, velocity_from_flow_rate, volumetric_flow_rate,
+};
+
 #[cfg(feature = "work")]
 pub mod work {
     pub use use_work::*;

@@ -4,6 +4,22 @@ pub use crate::{DensityError, density_of, mass_from_density, volume};
 #[cfg(feature = "energy")]
 pub use crate::{kinetic_energy, potential_energy, work};
 
+#[cfg(all(feature = "fluid", not(feature = "pressure")))]
+pub use crate::{
+    Fluid, PipeFlow, absolute_pressure, bernoulli_pressure, buoyant_force, continuity_area,
+    continuity_velocity, displaced_volume_from_buoyant_force, drag_force, dynamic_pressure,
+    dynamic_viscosity, hydrostatic_pressure, kinematic_viscosity, mass_flow_rate, reynolds_number,
+    velocity_from_flow_rate, volumetric_flow_rate,
+};
+
+#[cfg(all(feature = "fluid", feature = "pressure"))]
+pub use crate::{
+    Fluid, PipeFlow, absolute_pressure, bernoulli_pressure, buoyant_force, continuity_area,
+    continuity_velocity, displaced_volume_from_buoyant_force, drag_force, dynamic_pressure,
+    dynamic_viscosity, fluid_hydrostatic_pressure, kinematic_viscosity, mass_flow_rate,
+    reynolds_number, velocity_from_flow_rate, volumetric_flow_rate,
+};
+
 #[cfg(feature = "work")]
 pub use crate::{
     ConstantForceWork, displacement_from_work, final_kinetic_energy_from_work, force_from_work,
