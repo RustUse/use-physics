@@ -12,11 +12,12 @@ Publish all focused crates first in this dry-run and manual publish order:
 2. `use-force`
 3. `use-energy`
 4. `use-power`
-5. `use-pressure`
-6. `use-density`
-7. `use-gravity`
-8. `use-momentum`
-9. `use-thermodynamics`
+5. `use-electricity`
+6. `use-pressure`
+7. `use-density`
+8. `use-gravity`
+9. `use-momentum`
+10. `use-thermodynamics`
 
 Wait for crates.io index propagation, then publish `use-physics`.
 
@@ -61,4 +62,4 @@ The repository includes `release-plz` configuration in `release-plz.toml` and ma
 6. Confirm `cargo clippy --workspace --all-targets --all-features` passes.
 7. Confirm `cargo deny check` and `cargo audit` pass.
 8. Review README examples, crate metadata, `Cargo.lock`, and changelog entries.
-9. Confirm the focused-crate dry-run order remains `use-motion`, `use-force`, `use-energy`, `use-power`, `use-pressure`, `use-density`, `use-gravity`, `use-momentum`, then `use-thermodynamics`.
+9. Confirm the focused-crate dry-run order remains `use-motion`, `use-force`, `use-energy`, `use-power`, `use-electricity`, `use-pressure`, `use-density`, `use-gravity`, `use-momentum`, then `use-thermodynamics`.

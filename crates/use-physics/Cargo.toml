@@ -23,6 +23,7 @@ motion = ["dep:use-motion"]
 force = ["dep:use-force"]
 energy = ["dep:use-energy"]
 power = ["dep:use-power"]
+electricity = ["dep:use-electricity"]
 pressure = ["dep:use-pressure"]
 density = ["dep:use-density"]
 gravity = ["dep:use-gravity"]
@@ -33,6 +34,7 @@ full = [
     "force",
     "energy",
     "power",
+    "electricity",
     "pressure",
     "density",
     "gravity",
@@ -43,6 +45,7 @@ full = [
 [dependencies]
 use-density = { version = "0.0.1", path = "../use-density", optional = true }
 use-energy = { version = "0.0.1", path = "../use-energy", optional = true }
+use-electricity = { version = "0.0.1", path = "../use-electricity", optional = true }
 use-force = { version = "0.0.1", path = "../use-force", optional = true }
 use-gravity = { version = "0.0.1", path = "../use-gravity", optional = true }
 use-momentum = { version = "0.0.1", path = "../use-momentum", optional = true }

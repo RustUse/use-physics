@@ -1,6 +1,6 @@
 # RustUse/use-physics
 
-Composable `f64`-first mechanics, gravity, momentum, and thermodynamics helpers for Rust.
+Composable `f64`-first mechanics, electricity, gravity, momentum, and thermodynamics helpers for Rust.
 
 ## Workspace crates
 
@@ -11,6 +11,7 @@ Composable `f64`-first mechanics, gravity, momentum, and thermodynamics helpers 
 | `use-force`          | `crates/use-force/`          | Force, weight, and impulse helpers                   |
 | `use-energy`         | `crates/use-energy/`         | Work and mechanical energy helpers                   |
 | `use-power`          | `crates/use-power/`          | Average, mechanical, and electrical power helpers    |
+| `use-electricity`    | `crates/use-electricity/`    | Electricity and simple circuit helpers               |
 | `use-pressure`       | `crates/use-pressure/`       | Pressure and hydrostatic pressure helpers            |
 | `use-density`        | `crates/use-density/`        | Density, mass, and volume helpers                    |
 | `use-gravity`        | `crates/use-gravity/`        | Gravity, orbit, and gravitational energy helpers     |
@@ -25,14 +26,17 @@ Use the workspace directly or depend on a Git revision until the first crates.io
 
 ```rust
 use use_energy::kinetic_energy;
+use use_electricity::voltage;
 use use_force::force;
 use use_momentum::momentum;
 
 let applied_force = force(10.0, 2.0);
+let circuit_voltage = voltage(2.0, 5.0);
 let energy = kinetic_energy(2.0, 3.0);
 let linear_momentum = momentum(2.0, 3.0);
 
 assert_eq!(applied_force, 20.0);
+assert_eq!(circuit_voltage, Some(10.0));
 assert_eq!(energy, 9.0);
 assert_eq!(linear_momentum, Some(6.0));
 ```

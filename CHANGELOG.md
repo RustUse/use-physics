@@ -7,6 +7,7 @@
 - Added the initial `use-physics` multi-crate workspace scaffold.
 - Added focused crates for motion, force, energy, power, pressure, density, and thermodynamics.
 - Added the `use-physics` facade crate with feature-gated re-exports.
+- Added the `use-electricity` focused crate for charge, simple circuits, and Coulomb-force helpers.
 
 ### Tooling
 

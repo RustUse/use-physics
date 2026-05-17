@@ -6,12 +6,12 @@ Feature-gated facade for the focused `RustUse` physics crates.
 
 ```toml
 [dependencies]
-use-physics = { version = "0.0.1", default-features = false, features = ["gravity", "momentum"] }
+use-physics = { version = "0.0.1", default-features = false, features = ["gravity", "momentum", "electricity"] }
 ```
 
 ## Foundation
 
-`use-physics` re-exports focused `f64`-first physics helpers behind opt-in features. The facade stays thin, mirrors the boundaries of the concrete crates, and exposes each enabled crate under a matching module such as `use_physics::gravity` or `use_physics::momentum`.
+`use-physics` re-exports focused `f64`-first physics helpers behind opt-in features. The facade stays thin, mirrors the boundaries of the concrete crates, and exposes each enabled crate under a matching module such as `use_physics::gravity`, `use_physics::momentum`, or `use_physics::electricity`.
 
 When focused crates would otherwise collide at the root, the facade keeps explicit aliases. For example, enabling both `force` and `momentum` preserves `use-force`'s `impulse` export and re-exports the force-time helper from `use-momentum` as `momentum_impulse`.
 

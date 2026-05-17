@@ -21,6 +21,7 @@ body:
         - use-force focused crate
         - use-energy focused crate
         - use-power focused crate
+        - use-electricity focused crate
         - use-pressure focused crate
         - use-density focused crate
         - use-gravity focused crate

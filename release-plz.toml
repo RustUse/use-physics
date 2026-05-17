@@ -26,6 +26,11 @@ release = true
 version_group = "rustuse-physics"
 
 [[package]]
+name = "use-electricity"
+release = true
+version_group = "rustuse-physics"
+
+[[package]]
 name = "use-pressure"
 release = true
 version_group = "rustuse-physics"
@@ -62,6 +67,7 @@ changelog_include = [
   "use-force",
   "use-energy",
   "use-power",
+  "use-electricity",
   "use-pressure",
   "use-density",
   "use-gravity",
