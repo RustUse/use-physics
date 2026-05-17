@@ -1,6 +1,6 @@
 .PHONY: help fmt check lint test test-minimal build doc examples audit deny sbom publish-dry-run-focused publish-dry-run-facade release-readiness facade-post-publish-validation verify
 
-FOCUSED_CRATES := use-motion use-force use-energy use-work use-power use-fluid use-electricity use-magnetism use-pressure use-density use-gravity use-momentum use-particle use-thermodynamics
+FOCUSED_CRATES := use-motion use-force use-torque use-energy use-work use-power use-fluid use-electricity use-magnetism use-pressure use-density use-gravity use-momentum use-particle use-thermodynamics
 
 help:
 	@printf "%s\n" \

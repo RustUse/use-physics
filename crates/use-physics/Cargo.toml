@@ -21,6 +21,7 @@ all-features = true
 default = ["full"]
 motion = ["dep:use-motion"]
 force = ["dep:use-force"]
+torque = ["dep:use-torque"]
 energy = ["dep:use-energy"]
 work = ["dep:use-work"]
 power = ["dep:use-power"]
@@ -36,6 +37,7 @@ thermodynamics = ["dep:use-thermodynamics"]
 full = [
     "motion",
     "force",
+    "torque",
     "energy",
     "work",
     "power",
@@ -64,6 +66,7 @@ use-particle = { version = "0.0.1", path = "../use-particle", optional = true }
 use-power = { version = "0.0.1", path = "../use-power", optional = true }
 use-pressure = { version = "0.0.1", path = "../use-pressure", optional = true }
 use-thermodynamics = { version = "0.0.1", path = "../use-thermodynamics", optional = true }
+use-torque = { version = "0.0.1", path = "../use-torque", optional = true }
 use-work = { version = "0.0.1", path = "../use-work", optional = true }
 
 [[example]]

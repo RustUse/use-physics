@@ -1,6 +1,6 @@
 # RustUse/use-physics
 
-Composable `f64`-first mechanics, fluid flow, electricity, magnetism, gravity, momentum, particle metadata, and thermodynamics helpers for Rust.
+Composable `f64`-first mechanics, torque, fluid flow, electricity, magnetism, gravity, momentum, particle metadata, and thermodynamics helpers for Rust.
 
 ## Workspace crates
 
@@ -9,6 +9,7 @@ Composable `f64`-first mechanics, fluid flow, electricity, magnetism, gravity, m
 | `use-physics`        | `crates/use-physics/`        | Feature-gated facade over the focused physics crates |
 | `use-motion`         | `crates/use-motion/`         | Basic kinematics helpers                             |
 | `use-force`          | `crates/use-force/`          | Force, weight, and impulse helpers                   |
+| `use-torque`         | `crates/use-torque/`         | Torque, lever-arm, and rotational balance helpers    |
 | `use-energy`         | `crates/use-energy/`         | Work and mechanical energy helpers                   |
 | `use-work`           | `crates/use-work/`           | Mechanical work and work-energy relation helpers     |
 | `use-power`          | `crates/use-power/`          | Average, mechanical, and electrical power helpers    |
@@ -34,9 +35,11 @@ use use_electricity::voltage;
 use use_force::force;
 use use_momentum::momentum;
 use use_particle::{ParticleKind, charge};
+use use_torque::torque;
 use use_work::work_at_angle_degrees;
 
 let applied_force = force(10.0, 2.0);
+let applied_torque = torque(10.0, 2.0);
 let circuit_voltage = voltage(2.0, 5.0);
 let energy = kinetic_energy(2.0, 3.0);
 let linear_momentum = momentum(2.0, 3.0);
@@ -44,6 +47,7 @@ let electron_charge = charge(ParticleKind::Electron);
 let angled_work = work_at_angle_degrees(10.0, 2.0, 60.0);
 
 assert_eq!(applied_force, 20.0);
+assert_eq!(applied_torque, Some(20.0));
 assert_eq!(circuit_voltage, Some(10.0));
 assert_eq!(energy, 9.0);
 assert_eq!(linear_momentum, Some(6.0));
