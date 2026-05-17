@@ -35,6 +35,7 @@ magnetism = ["dep:use-magnetism"]
 electromagnetism = ["dep:use-electromagnetism"]
 plasma = ["dep:use-plasma"]
 pressure = ["dep:use-pressure"]
+elasticity = ["dep:use-elasticity"]
 fluid = ["dep:use-fluid"]
 density = ["dep:use-density"]
 gravity = ["dep:use-gravity"]
@@ -63,6 +64,7 @@ full = [
     "electromagnetism",
     "plasma",
     "pressure",
+    "elasticity",
     "fluid",
     "density",
     "gravity",
@@ -81,6 +83,7 @@ use-collision = { version = "0.0.1", path = "../use-collision", optional = true 
 use-density = { version = "0.0.1", path = "../use-density", optional = true }
 use-energy = { version = "0.0.1", path = "../use-energy", optional = true }
 use-electricity = { version = "0.0.1", path = "../use-electricity", optional = true }
+use-elasticity = { version = "0.0.1", path = "../use-elasticity", optional = true }
 use-electromagnetism = { version = "0.0.1", path = "../use-electromagnetism", optional = true }
 use-force = { version = "0.0.1", path = "../use-force", optional = true }
 use-fluid = { version = "0.0.1", path = "../use-fluid", optional = true }

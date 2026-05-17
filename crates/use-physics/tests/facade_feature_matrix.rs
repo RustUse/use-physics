@@ -17,6 +17,7 @@
     feature = "electromagnetism",
     feature = "plasma",
     feature = "pressure",
+    feature = "elasticity",
     feature = "fluid",
     feature = "density",
     feature = "gravity",
@@ -31,11 +32,11 @@
 #[test]
 fn facade_exposes_all_namespace_features() {
     use use_physics::{
-        collision as _, density as _, electricity as _, electromagnetism as _, energy as _,
-        fluid as _, force as _, gravity as _, magnetism as _, momentum as _, motion as _,
-        nuclear as _, oscillation as _, particle as _, plasma as _, power as _, pressure as _,
-        quantum as _, radiation as _, relativity as _, rigidbody as _, rotation as _, statics as _,
-        thermodynamics as _, torque as _,
+        collision as _, density as _, elasticity as _, electricity as _, electromagnetism as _,
+        energy as _, fluid as _, force as _, gravity as _, magnetism as _, momentum as _,
+        motion as _, nuclear as _, oscillation as _, particle as _, plasma as _, power as _,
+        pressure as _, quantum as _, radiation as _, relativity as _, rigidbody as _,
+        rotation as _, statics as _, thermodynamics as _, torque as _,
     };
 
     let _ = use_physics::work::net_work;
@@ -73,6 +74,7 @@ fn facade_exposes_all_namespace_features() {
     not(feature = "electromagnetism"),
     not(feature = "plasma"),
     not(feature = "pressure"),
+    not(feature = "elasticity"),
     not(feature = "fluid"),
     not(feature = "density"),
     not(feature = "gravity"),
@@ -103,6 +105,7 @@ fn facade_supports_force_only() {
     not(feature = "electromagnetism"),
     not(feature = "plasma"),
     not(feature = "pressure"),
+    not(feature = "elasticity"),
     not(feature = "fluid"),
     not(feature = "density"),
     not(feature = "gravity"),
@@ -132,6 +135,7 @@ fn facade_supports_momentum_only() {
     not(feature = "electromagnetism"),
     not(feature = "plasma"),
     not(feature = "pressure"),
+    not(feature = "elasticity"),
     not(feature = "fluid"),
     not(feature = "density"),
     not(feature = "gravity"),
@@ -172,6 +176,7 @@ fn facade_supports_collision_only() {
     not(feature = "electromagnetism"),
     not(feature = "plasma"),
     not(feature = "pressure"),
+    not(feature = "elasticity"),
     not(feature = "fluid"),
     not(feature = "density"),
     not(feature = "gravity"),
@@ -205,6 +210,7 @@ fn facade_supports_rotation_only() {
     not(feature = "magnetism"),
     not(feature = "pressure"),
     not(feature = "plasma"),
+    not(feature = "elasticity"),
     not(feature = "fluid"),
     not(feature = "density"),
     not(feature = "gravity"),
@@ -238,6 +244,7 @@ fn facade_supports_electromagnetism_only() {
     not(feature = "electromagnetism"),
     not(feature = "plasma"),
     not(feature = "pressure"),
+    not(feature = "elasticity"),
     not(feature = "fluid"),
     not(feature = "density"),
     not(feature = "gravity"),
@@ -251,6 +258,46 @@ fn facade_supports_electromagnetism_only() {
 fn facade_supports_nuclear_only() {
     assert_eq!(use_physics::activity(2.0, 10.0), Some(20.0));
     assert_eq!(use_physics::neutron_count(4, 2), Some(2));
+}
+
+#[cfg(all(
+    feature = "elasticity",
+    not(feature = "motion"),
+    not(feature = "oscillation"),
+    not(feature = "rotation"),
+    not(feature = "rigidbody"),
+    not(feature = "force"),
+    not(feature = "torque"),
+    not(feature = "statics"),
+    not(feature = "energy"),
+    not(feature = "collision"),
+    not(feature = "work"),
+    not(feature = "power"),
+    not(feature = "electricity"),
+    not(feature = "magnetism"),
+    not(feature = "electromagnetism"),
+    not(feature = "plasma"),
+    not(feature = "pressure"),
+    not(feature = "fluid"),
+    not(feature = "density"),
+    not(feature = "gravity"),
+    not(feature = "orbit"),
+    not(feature = "momentum"),
+    not(feature = "relativity"),
+    not(feature = "quantum"),
+    not(feature = "particle"),
+    not(feature = "nuclear"),
+    not(feature = "radiation"),
+    not(feature = "thermodynamics")
+))]
+#[test]
+fn facade_supports_elasticity_only() {
+    assert_eq!(use_physics::normal_stress(100.0, 2.0), Some(50.0));
+    assert_eq!(
+        use_physics::ElasticBar::new(10.0, 2.0, 1_000.0)
+            .and_then(|bar| bar.deformation_under_force(100.0)),
+        Some(0.5)
+    );
 }
 
 #[cfg(all(
@@ -268,6 +315,7 @@ fn facade_supports_nuclear_only() {
     not(feature = "electromagnetism"),
     not(feature = "plasma"),
     not(feature = "pressure"),
+    not(feature = "elasticity"),
     not(feature = "fluid"),
     not(feature = "density"),
     not(feature = "gravity"),
@@ -305,6 +353,7 @@ fn facade_supports_radiation_only() {
     not(feature = "electromagnetism"),
     not(feature = "plasma"),
     not(feature = "pressure"),
+    not(feature = "elasticity"),
     not(feature = "fluid"),
     not(feature = "density"),
     not(feature = "gravity"),
@@ -342,6 +391,7 @@ fn facade_supports_relativity_only() {
     not(feature = "electromagnetism"),
     not(feature = "plasma"),
     not(feature = "pressure"),
+    not(feature = "elasticity"),
     not(feature = "fluid"),
     not(feature = "density"),
     not(feature = "gravity"),
@@ -378,6 +428,7 @@ fn facade_supports_quantum_only() {
     not(feature = "electromagnetism"),
     not(feature = "plasma"),
     not(feature = "pressure"),
+    not(feature = "elasticity"),
     not(feature = "fluid"),
     not(feature = "density"),
     not(feature = "gravity"),

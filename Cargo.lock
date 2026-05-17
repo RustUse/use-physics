@@ -11,6 +11,10 @@ name = "use-density"
 version = "0.0.1"
 
 [[package]]
+name = "use-elasticity"
+version = "0.0.1"
+
+[[package]]
 name = "use-electricity"
 version = "0.0.1"
 
@@ -68,6 +72,7 @@ version = "0.0.1"
 dependencies = [
  "use-collision",
  "use-density",
+ "use-elasticity",
  "use-electricity",
  "use-electromagnetism",
  "use-energy",

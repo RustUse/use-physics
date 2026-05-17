@@ -33,6 +33,7 @@ body:
         - use-electromagnetism focused crate
         - use-plasma focused crate
         - use-pressure focused crate
+        - use-elasticity focused crate
         - use-density focused crate
         - use-gravity focused crate
         - use-orbit focused crate

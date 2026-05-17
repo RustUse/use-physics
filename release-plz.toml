@@ -86,6 +86,11 @@ release = true
 version_group = "rustuse-physics"
 
 [[package]]
+name = "use-elasticity"
+release = true
+version_group = "rustuse-physics"
+
+[[package]]
 name = "use-density"
 release = true
 version_group = "rustuse-physics"
@@ -164,6 +169,7 @@ changelog_include = [
   "use-electromagnetism",
   "use-plasma",
   "use-pressure",
+  "use-elasticity",
   "use-density",
   "use-gravity",
   "use-orbit",
