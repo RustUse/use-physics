@@ -22,6 +22,7 @@ default = ["full"]
 motion = ["dep:use-motion"]
 oscillation = ["dep:use-oscillation"]
 rotation = ["dep:use-rotation"]
+rigidbody = ["dep:use-rigidbody"]
 force = ["dep:use-force"]
 torque = ["dep:use-torque"]
 energy = ["dep:use-energy"]
@@ -48,6 +49,7 @@ full = [
     "motion",
     "oscillation",
     "rotation",
+    "rigidbody",
     "force",
     "torque",
     "energy",
@@ -94,6 +96,7 @@ use-pressure = { version = "0.0.1", path = "../use-pressure", optional = true }
 use-quantum = { version = "0.0.1", path = "../use-quantum", optional = true }
 use-radiation = { version = "0.0.1", path = "../use-radiation", optional = true }
 use-relativity = { version = "0.0.1", path = "../use-relativity", optional = true }
+use-rigidbody = { version = "0.0.1", path = "../use-rigidbody", optional = true }
 use-rotation = { version = "0.0.1", path = "../use-rotation", optional = true }
 use-thermodynamics = { version = "0.0.1", path = "../use-thermodynamics", optional = true }
 use-torque = { version = "0.0.1", path = "../use-torque", optional = true }

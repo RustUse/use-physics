@@ -292,6 +292,42 @@ pub use crate::{
     tangential_speed, thin_ring_moment_of_inertia,
 };
 
+#[cfg(feature = "rigidbody")]
+pub use crate::{
+    MassProperties, RigidBody1D, angular_impulse_from_angular_velocity_change,
+    angular_velocity_after_angular_impulse, center_moment_from_parallel_axis, center_of_mass_1d,
+    combined_mass, impulse_from_velocity_change, linear_kinetic_energy, linear_momentum,
+    parallel_axis_moment_of_inertia, reduced_mass, total_kinetic_energy, velocity_after_impulse,
+};
+
+#[cfg(all(
+    feature = "rigidbody",
+    not(feature = "rotation"),
+    not(feature = "torque")
+))]
+pub use crate::{
+    angular_momentum, hollow_sphere_moment_of_inertia, point_mass_moment_of_inertia,
+    rod_moment_of_inertia_about_center, rod_moment_of_inertia_about_end, rotational_kinetic_energy,
+    solid_disk_moment_of_inertia, solid_sphere_moment_of_inertia, thin_ring_moment_of_inertia,
+};
+
+#[cfg(all(feature = "rigidbody", not(feature = "rotation"), feature = "torque"))]
+pub use crate::{
+    angular_momentum, hollow_sphere_moment_of_inertia, rigidbody_point_mass_moment_of_inertia,
+    rigidbody_rod_moment_of_inertia_about_center, rigidbody_rod_moment_of_inertia_about_end,
+    rotational_kinetic_energy, solid_disk_moment_of_inertia, solid_sphere_moment_of_inertia,
+    thin_ring_moment_of_inertia,
+};
+
+#[cfg(all(feature = "rigidbody", feature = "rotation"))]
+pub use crate::{
+    rigidbody_angular_momentum, rigidbody_hollow_sphere_moment_of_inertia,
+    rigidbody_point_mass_moment_of_inertia, rigidbody_rod_moment_of_inertia_about_center,
+    rigidbody_rod_moment_of_inertia_about_end, rigidbody_rotational_kinetic_energy,
+    rigidbody_solid_disk_moment_of_inertia, rigidbody_solid_sphere_moment_of_inertia,
+    rigidbody_thin_ring_moment_of_inertia,
+};
+
 #[cfg(feature = "particle")]
 pub use crate::{
     ElementaryCharge, Particle, ParticleFamily, ParticleKind, ParticleStatistics, Spin,

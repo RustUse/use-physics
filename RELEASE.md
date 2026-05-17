@@ -12,28 +12,29 @@ Publish all focused crates first in this dry-run and manual publish order:
 1. `use-motion`
 2. `use-oscillation`
 3. `use-rotation`
-4. `use-force`
-5. `use-torque`
-6. `use-energy`
-7. `use-work`
-8. `use-power`
-9. `use-fluid`
-10. `use-electricity`
-11. `use-magnetism`
-12. `use-electromagnetism`
-13. `use-plasma`
-14. `use-pressure`
-15. `use-density`
-16. `use-gravity`
-17. `use-orbit`
-18. `use-momentum`
-19. `use-collision`
-20. `use-relativity`
-21. `use-quantum`
-22. `use-particle`
-23. `use-nuclear`
-24. `use-radiation`
-25. `use-thermodynamics`
+4. `use-rigidbody`
+5. `use-force`
+6. `use-torque`
+7. `use-energy`
+8. `use-work`
+9. `use-power`
+10. `use-fluid`
+11. `use-electricity`
+12. `use-magnetism`
+13. `use-electromagnetism`
+14. `use-plasma`
+15. `use-pressure`
+16. `use-density`
+17. `use-gravity`
+18. `use-orbit`
+19. `use-momentum`
+20. `use-collision`
+21. `use-relativity`
+22. `use-quantum`
+23. `use-particle`
+24. `use-nuclear`
+25. `use-radiation`
+26. `use-thermodynamics`
 
 Wait for crates.io index propagation, then publish `use-physics`.
 
@@ -78,4 +79,4 @@ The repository includes `release-plz` configuration in `release-plz.toml` and ma
 6. Confirm `cargo clippy --workspace --all-targets --all-features` passes.
 7. Confirm `cargo deny check` and `cargo audit` pass.
 8. Review README examples, crate metadata, `Cargo.lock`, and changelog entries.
-9. Confirm the focused-crate dry-run order remains `use-motion`, `use-oscillation`, `use-rotation`, `use-force`, `use-torque`, `use-energy`, `use-work`, `use-power`, `use-fluid`, `use-electricity`, `use-magnetism`, `use-electromagnetism`, `use-plasma`, `use-pressure`, `use-density`, `use-gravity`, `use-orbit`, `use-momentum`, `use-collision`, `use-relativity`, `use-quantum`, `use-particle`, `use-nuclear`, `use-radiation`, then `use-thermodynamics`.
+9. Confirm the focused-crate dry-run order remains `use-motion`, `use-oscillation`, `use-rotation`, `use-rigidbody`, `use-force`, `use-torque`, `use-energy`, `use-work`, `use-power`, `use-fluid`, `use-electricity`, `use-magnetism`, `use-electromagnetism`, `use-plasma`, `use-pressure`, `use-density`, `use-gravity`, `use-orbit`, `use-momentum`, `use-collision`, `use-relativity`, `use-quantum`, `use-particle`, `use-nuclear`, `use-radiation`, then `use-thermodynamics`.

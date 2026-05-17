@@ -87,6 +87,7 @@ dependencies = [
  "use-quantum",
  "use-radiation",
  "use-relativity",
+ "use-rigidbody",
  "use-rotation",
  "use-thermodynamics",
  "use-torque",
@@ -115,6 +116,10 @@ version = "0.0.1"
 
 [[package]]
 name = "use-relativity"
+version = "0.0.1"
+
+[[package]]
+name = "use-rigidbody"
 version = "0.0.1"
 
 [[package]]

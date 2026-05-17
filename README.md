@@ -1,40 +1,41 @@
 # RustUse/use-physics
 
-Composable `f64`-first mechanics, oscillation, rotational motion, torque, fluid flow, electricity,
+Composable `f64`-first mechanics, oscillation, rigid-body mechanics, rotational motion, torque, fluid flow, electricity,
 magnetism, electromagnetism, plasma physics, gravity, orbital mechanics, momentum, collisions,
 special relativity, quantum physics, particle metadata, nuclear physics, radiation physics, and
 thermodynamics helpers for Rust.
 
 ## Workspace crates
 
-| Crate                  | Path                           | Purpose                                              |
-| ---------------------- | ------------------------------ | ---------------------------------------------------- |
-| `use-physics`          | `crates/use-physics/`          | Feature-gated facade over the focused physics crates |
-| `use-motion`           | `crates/use-motion/`           | Basic kinematics helpers                             |
-| `use-oscillation`      | `crates/use-oscillation/`      | Simple harmonic motion and oscillator helpers        |
-| `use-rotation`         | `crates/use-rotation/`         | Rotational motion and angular dynamics helpers       |
-| `use-force`            | `crates/use-force/`            | Force, weight, and impulse helpers                   |
-| `use-torque`           | `crates/use-torque/`           | Torque, lever-arm, and rotational balance helpers    |
-| `use-energy`           | `crates/use-energy/`           | Work and mechanical energy helpers                   |
-| `use-work`             | `crates/use-work/`             | Mechanical work and work-energy relation helpers     |
-| `use-power`            | `crates/use-power/`            | Average, mechanical, and electrical power helpers    |
-| `use-fluid`            | `crates/use-fluid/`            | Fluid mechanics scalar helpers                       |
-| `use-electricity`      | `crates/use-electricity/`      | Electricity and simple circuit helpers               |
-| `use-magnetism`        | `crates/use-magnetism/`        | Magnetism and magnetic-field helpers                 |
-| `use-electromagnetism` | `crates/use-electromagnetism/` | Combined electric and magnetic field scalar helpers  |
-| `use-plasma`           | `crates/use-plasma/`           | Plasma physics scalar helpers                        |
-| `use-pressure`         | `crates/use-pressure/`         | Pressure and hydrostatic pressure helpers            |
-| `use-density`          | `crates/use-density/`          | Density, mass, and volume helpers                    |
-| `use-gravity`          | `crates/use-gravity/`          | Gravity, orbit, and gravitational energy helpers     |
-| `use-orbit`            | `crates/use-orbit/`            | Orbital mechanics scalar helpers                     |
-| `use-momentum`         | `crates/use-momentum/`         | Momentum, impulse, and recoil helpers                |
-| `use-collision`        | `crates/use-collision/`        | One-dimensional collision and restitution helpers    |
-| `use-relativity`       | `crates/use-relativity/`       | Special relativity scalar helpers                    |
-| `use-quantum`          | `crates/use-quantum/`          | Quantum physics scalar helpers                       |
-| `use-particle`         | `crates/use-particle/`         | Particle classification and metadata helpers         |
-| `use-nuclear`          | `crates/use-nuclear/`          | Radioactive decay and nuclear scalar helpers         |
-| `use-radiation`        | `crates/use-radiation/`        | Radiation intensity, dose, and attenuation helpers   |
-| `use-thermodynamics`   | `crates/use-thermodynamics/`   | Ideal gas and heat-energy helpers                    |
+| Crate                  | Path                           | Purpose                                               |
+| ---------------------- | ------------------------------ | ----------------------------------------------------- |
+| `use-physics`          | `crates/use-physics/`          | Feature-gated facade over the focused physics crates  |
+| `use-motion`           | `crates/use-motion/`           | Basic kinematics helpers                              |
+| `use-oscillation`      | `crates/use-oscillation/`      | Simple harmonic motion and oscillator helpers         |
+| `use-rotation`         | `crates/use-rotation/`         | Rotational motion and angular dynamics helpers        |
+| `use-rigidbody`        | `crates/use-rigidbody/`        | Rigid-body mass properties and scalar impulse helpers |
+| `use-force`            | `crates/use-force/`            | Force, weight, and impulse helpers                    |
+| `use-torque`           | `crates/use-torque/`           | Torque, lever-arm, and rotational balance helpers     |
+| `use-energy`           | `crates/use-energy/`           | Work and mechanical energy helpers                    |
+| `use-work`             | `crates/use-work/`             | Mechanical work and work-energy relation helpers      |
+| `use-power`            | `crates/use-power/`            | Average, mechanical, and electrical power helpers     |
+| `use-fluid`            | `crates/use-fluid/`            | Fluid mechanics scalar helpers                        |
+| `use-electricity`      | `crates/use-electricity/`      | Electricity and simple circuit helpers                |
+| `use-magnetism`        | `crates/use-magnetism/`        | Magnetism and magnetic-field helpers                  |
+| `use-electromagnetism` | `crates/use-electromagnetism/` | Combined electric and magnetic field scalar helpers   |
+| `use-plasma`           | `crates/use-plasma/`           | Plasma physics scalar helpers                         |
+| `use-pressure`         | `crates/use-pressure/`         | Pressure and hydrostatic pressure helpers             |
+| `use-density`          | `crates/use-density/`          | Density, mass, and volume helpers                     |
+| `use-gravity`          | `crates/use-gravity/`          | Gravity, orbit, and gravitational energy helpers      |
+| `use-orbit`            | `crates/use-orbit/`            | Orbital mechanics scalar helpers                      |
+| `use-momentum`         | `crates/use-momentum/`         | Momentum, impulse, and recoil helpers                 |
+| `use-collision`        | `crates/use-collision/`        | One-dimensional collision and restitution helpers     |
+| `use-relativity`       | `crates/use-relativity/`       | Special relativity scalar helpers                     |
+| `use-quantum`          | `crates/use-quantum/`          | Quantum physics scalar helpers                        |
+| `use-particle`         | `crates/use-particle/`         | Particle classification and metadata helpers          |
+| `use-nuclear`          | `crates/use-nuclear/`          | Radioactive decay and nuclear scalar helpers          |
+| `use-radiation`        | `crates/use-radiation/`        | Radiation intensity, dose, and attenuation helpers    |
+| `use-thermodynamics`   | `crates/use-thermodynamics/`   | Ideal gas and heat-energy helpers                     |
 
 ## Installation
 

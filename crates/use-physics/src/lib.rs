@@ -367,6 +367,51 @@ pub use use_rotation::{
     tangential_acceleration, tangential_speed, thin_ring_moment_of_inertia,
 };
 
+#[cfg(feature = "rigidbody")]
+pub use use_rigidbody as rigidbody;
+
+#[cfg(feature = "rigidbody")]
+pub use use_rigidbody::{
+    MassProperties, RigidBody1D, angular_impulse_from_angular_velocity_change,
+    angular_velocity_after_angular_impulse, center_moment_from_parallel_axis, center_of_mass_1d,
+    combined_mass, impulse_from_velocity_change, linear_kinetic_energy, linear_momentum,
+    parallel_axis_moment_of_inertia, reduced_mass, total_kinetic_energy, velocity_after_impulse,
+};
+
+#[cfg(all(
+    feature = "rigidbody",
+    not(feature = "rotation"),
+    not(feature = "torque")
+))]
+pub use use_rigidbody::{
+    angular_momentum, hollow_sphere_moment_of_inertia, point_mass_moment_of_inertia,
+    rod_moment_of_inertia_about_center, rod_moment_of_inertia_about_end, rotational_kinetic_energy,
+    solid_disk_moment_of_inertia, solid_sphere_moment_of_inertia, thin_ring_moment_of_inertia,
+};
+
+#[cfg(all(feature = "rigidbody", not(feature = "rotation"), feature = "torque"))]
+pub use use_rigidbody::{
+    angular_momentum, hollow_sphere_moment_of_inertia,
+    point_mass_moment_of_inertia as rigidbody_point_mass_moment_of_inertia,
+    rod_moment_of_inertia_about_center as rigidbody_rod_moment_of_inertia_about_center,
+    rod_moment_of_inertia_about_end as rigidbody_rod_moment_of_inertia_about_end,
+    rotational_kinetic_energy, solid_disk_moment_of_inertia, solid_sphere_moment_of_inertia,
+    thin_ring_moment_of_inertia,
+};
+
+#[cfg(all(feature = "rigidbody", feature = "rotation"))]
+pub use use_rigidbody::{
+    angular_momentum as rigidbody_angular_momentum,
+    hollow_sphere_moment_of_inertia as rigidbody_hollow_sphere_moment_of_inertia,
+    point_mass_moment_of_inertia as rigidbody_point_mass_moment_of_inertia,
+    rod_moment_of_inertia_about_center as rigidbody_rod_moment_of_inertia_about_center,
+    rod_moment_of_inertia_about_end as rigidbody_rod_moment_of_inertia_about_end,
+    rotational_kinetic_energy as rigidbody_rotational_kinetic_energy,
+    solid_disk_moment_of_inertia as rigidbody_solid_disk_moment_of_inertia,
+    solid_sphere_moment_of_inertia as rigidbody_solid_sphere_moment_of_inertia,
+    thin_ring_moment_of_inertia as rigidbody_thin_ring_moment_of_inertia,
+};
+
 #[cfg(feature = "particle")]
 pub use use_particle as particle;
 

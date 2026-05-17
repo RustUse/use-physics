@@ -15,7 +15,9 @@ body:
       options:
         - use-physics facade crate
         - use-motion focused crate
+        - use-oscillation focused crate
         - use-rotation focused crate
+        - use-rigidbody focused crate
         - use-force focused crate
         - use-torque focused crate
         - use-energy focused crate

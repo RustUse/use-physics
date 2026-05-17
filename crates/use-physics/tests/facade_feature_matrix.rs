@@ -4,6 +4,7 @@
     feature = "motion",
     feature = "oscillation",
     feature = "rotation",
+    feature = "rigidbody",
     feature = "force",
     feature = "torque",
     feature = "energy",
@@ -32,8 +33,8 @@ fn facade_exposes_all_namespace_features() {
         collision as _, density as _, electricity as _, electromagnetism as _, energy as _,
         fluid as _, force as _, gravity as _, magnetism as _, momentum as _, motion as _,
         nuclear as _, oscillation as _, particle as _, plasma as _, power as _, pressure as _,
-        quantum as _, radiation as _, relativity as _, rotation as _, thermodynamics as _,
-        torque as _,
+        quantum as _, radiation as _, relativity as _, rigidbody as _, rotation as _,
+        thermodynamics as _, torque as _,
     };
 
     let _ = use_physics::work::net_work;
@@ -50,6 +51,11 @@ fn facade_exposes_all_namespace_features() {
     let _ = use_physics::oscillation_displacement;
     let _ = use_physics::oscillation_spring_potential_energy;
     let _ = use_physics::collision_kinetic_energy;
+    let _ = use_physics::rigidbody_angular_momentum;
+    let _ = use_physics::rigidbody_point_mass_moment_of_inertia;
+    let _ = use_physics::rigidbody_rod_moment_of_inertia_about_center;
+    let _ = use_physics::rigidbody_rotational_kinetic_energy;
+    let _ = use_physics::rigidbody_solid_disk_moment_of_inertia;
 }
 
 #[cfg(all(

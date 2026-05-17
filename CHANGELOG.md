@@ -10,6 +10,7 @@
 - Added the `use-electricity` focused crate for charge, simple circuits, and Coulomb-force helpers.
 - Added the `use-magnetism` focused crate for magnetic flux, force, field, and pressure helpers, and exposed it through the `use-physics` facade.
 - Added the `use-work` focused crate for mechanical work and work-energy helpers.
+- Added the `use-rigidbody` focused crate for rigid-body mass properties, inertia, impulse response, and simple scalar state helpers, and exposed it through the `use-physics` facade.
 
 ### Tooling
 
