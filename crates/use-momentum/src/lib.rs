@@ -1,7 +1,7 @@
 #![forbid(unsafe_code)]
 #![doc = include_str!("../README.md")]
 
-//! Linear momentum, impulse, and one-dimensional collision helpers.
+//! Linear momentum, impulse, and recoil helpers.
 
 pub mod prelude;
 
@@ -178,109 +178,6 @@ pub fn two_body_total_momentum(
     finite_result(momentum_a + momentum_b)
 }
 
-/// Computes the shared final velocity for a perfectly inelastic one-dimensional collision.
-///
-/// Uses `v_final = (m1v1 + m2v2) / (m1 + m2)`.
-///
-/// Returns `None` when either mass is negative, when the total mass is less than or equal to
-/// zero, when any input is not finite, or when the computed velocity is not finite.
-///
-/// # Examples
-///
-/// ```rust
-/// use use_momentum::final_velocity_after_sticking_collision;
-///
-/// let final_velocity =
-///     final_velocity_after_sticking_collision(2.0, 3.0, 4.0, -1.0).unwrap();
-///
-/// assert!((final_velocity - 0.333_333_333_333_333_3).abs() < 1.0e-12);
-/// ```
-#[must_use]
-pub fn final_velocity_after_sticking_collision(
-    mass_a: f64,
-    velocity_a: f64,
-    mass_b: f64,
-    velocity_b: f64,
-) -> Option<f64> {
-    if !velocity_a.is_finite() || !velocity_b.is_finite() {
-        return None;
-    }
-
-    let total_mass = combined_mass(mass_a, mass_b)?;
-    let total_momentum = two_body_total_momentum(mass_a, velocity_a, mass_b, velocity_b)?;
-
-    finite_result(total_momentum / total_mass)
-}
-
-/// Computes the final velocity of body A after a one-dimensional elastic collision.
-///
-/// Returns `None` when either mass is negative, when the total mass is less than or equal to
-/// zero, when any input is not finite, or when the computed velocity is not finite.
-#[must_use]
-pub fn elastic_collision_velocity_a(
-    mass_a: f64,
-    velocity_a: f64,
-    mass_b: f64,
-    velocity_b: f64,
-) -> Option<f64> {
-    elastic_collision_velocities(mass_a, velocity_a, mass_b, velocity_b).map(|(final_a, _)| final_a)
-}
-
-/// Computes the final velocity of body B after a one-dimensional elastic collision.
-///
-/// Returns `None` when either mass is negative, when the total mass is less than or equal to
-/// zero, when any input is not finite, or when the computed velocity is not finite.
-#[must_use]
-pub fn elastic_collision_velocity_b(
-    mass_a: f64,
-    velocity_a: f64,
-    mass_b: f64,
-    velocity_b: f64,
-) -> Option<f64> {
-    elastic_collision_velocities(mass_a, velocity_a, mass_b, velocity_b).map(|(_, final_b)| final_b)
-}
-
-/// Computes the final velocities of both bodies after a one-dimensional elastic collision.
-///
-/// Returns `None` when either mass is negative, when the total mass is less than or equal to
-/// zero, when any input is not finite, or when either computed velocity is not finite.
-///
-/// # Examples
-///
-/// ```rust
-/// use use_momentum::elastic_collision_velocities;
-///
-/// let (final_a, final_b) = elastic_collision_velocities(1.0, 1.0, 1.0, -1.0).unwrap();
-///
-/// assert!((final_a + 1.0).abs() < 1.0e-12);
-/// assert!((final_b - 1.0).abs() < 1.0e-12);
-/// ```
-#[must_use]
-pub fn elastic_collision_velocities(
-    mass_a: f64,
-    velocity_a: f64,
-    mass_b: f64,
-    velocity_b: f64,
-) -> Option<(f64, f64)> {
-    if !velocity_a.is_finite() || !velocity_b.is_finite() {
-        return None;
-    }
-
-    let total_mass = combined_mass(mass_a, mass_b)?;
-    let coefficient_a = (mass_a - mass_b) / total_mass;
-    let coupling_a = (2.0 * mass_b) / total_mass;
-    let coefficient_b = (2.0 * mass_a) / total_mass;
-    let coupling_b = (mass_b - mass_a) / total_mass;
-    let final_a = coefficient_a.mul_add(velocity_a, coupling_a * velocity_b);
-    let final_b = coefficient_b.mul_add(velocity_a, coupling_b * velocity_b);
-
-    if !final_a.is_finite() || !final_b.is_finite() {
-        return None;
-    }
-
-    Some((final_a, final_b))
-}
-
 /// Computes recoil velocity assuming the initial total momentum is zero.
 ///
 /// Uses `v_recoil = -(projectile_mass * projectile_velocity) / body_mass`.
@@ -324,34 +221,14 @@ fn is_positive_finite(value: f64) -> bool {
     value.is_finite() && value > 0.0
 }
 
-fn combined_mass(mass_a: f64, mass_b: f64) -> Option<f64> {
-    if !is_nonnegative_finite(mass_a) || !is_nonnegative_finite(mass_b) {
-        return None;
-    }
-
-    let total_mass = mass_a + mass_b;
-    is_positive_finite(total_mass).then_some(total_mass)
-}
-
 #[cfg(test)]
 #[allow(clippy::float_cmp)]
 mod tests {
     use super::{
-        MovingMass, average_force_from_impulse, elastic_collision_velocities,
-        final_velocity_after_sticking_collision, impulse, impulse_from_momentum_change,
+        MovingMass, average_force_from_impulse, impulse, impulse_from_momentum_change,
         mass_from_momentum, momentum, recoil_velocity, total_momentum, two_body_total_momentum,
         velocity_from_momentum,
     };
-
-    const EPSILON: f64 = 1.0e-10;
-
-    fn assert_approx_eq(left: f64, right: f64) {
-        assert!(
-            (left - right).abs() < EPSILON,
-            "left={left}, right={right}, diff={}",
-            (left - right).abs()
-        );
-    }
 
     #[test]
     fn momentum_helpers_cover_common_cases() {
@@ -383,16 +260,6 @@ mod tests {
         assert_eq!(total_momentum(&[1.0, 2.0, 3.0]), Some(6.0));
         assert_eq!(total_momentum(&[]), Some(0.0));
         assert_eq!(two_body_total_momentum(2.0, 3.0, 4.0, -1.0), Some(2.0));
-    }
-
-    #[test]
-    fn collision_helpers_cover_common_cases() {
-        let final_velocity = final_velocity_after_sticking_collision(2.0, 3.0, 4.0, -1.0).unwrap();
-        assert_approx_eq(final_velocity, 0.333_333_333_333_333_3);
-
-        let (final_a, final_b) = elastic_collision_velocities(1.0, 1.0, 1.0, -1.0).unwrap();
-        assert_approx_eq(final_a, -1.0);
-        assert_approx_eq(final_b, 1.0);
     }
 
     #[test]

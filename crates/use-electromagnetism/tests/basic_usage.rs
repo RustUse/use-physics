@@ -10,7 +10,7 @@ fn focused_crate_covers_combined_field_workflow() {
     let poynting = poynting_magnitude(10.0, 2.0).unwrap();
 
     assert_eq!(field.electric_force_on_charge(3.0), Some(30.0));
-    assert_eq!(selector_speed, 5.0);
+    assert!((selector_speed - 5.0).abs() < 1.0e-12);
     assert!((lorentz_force - 16.0).abs() < 1.0e-9);
     assert!(poynting > 0.0);
 }

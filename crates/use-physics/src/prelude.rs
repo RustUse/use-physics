@@ -4,6 +4,28 @@ pub use crate::{DensityError, density_of, mass_from_density, volume};
 #[cfg(feature = "energy")]
 pub use crate::{kinetic_energy, potential_energy, work};
 
+#[cfg(all(feature = "collision", not(feature = "energy")))]
+pub use crate::{
+    Collision1D, CollisionBody1D, coefficient_of_restitution, collision_energy_loss_1d,
+    collision_energy_loss_fraction_1d, collision_final_velocities_1d, collision_impulse_on_a,
+    collision_impulse_on_b, collision_impulses_1d, elastic_collision_final_velocities_1d,
+    is_perfectly_elastic, is_perfectly_inelastic, is_valid_restitution, kinetic_energy,
+    kinetic_energy_loss, kinetic_energy_loss_fraction,
+    perfectly_inelastic_collision_final_velocities_1d, perfectly_inelastic_collision_velocity_1d,
+    relative_speed, relative_velocity, separation_speed_from_restitution, total_kinetic_energy_1d,
+};
+
+#[cfg(all(feature = "collision", feature = "energy"))]
+pub use crate::{
+    Collision1D, CollisionBody1D, coefficient_of_restitution, collision_energy_loss_1d,
+    collision_energy_loss_fraction_1d, collision_final_velocities_1d, collision_impulse_on_a,
+    collision_impulse_on_b, collision_impulses_1d, collision_kinetic_energy,
+    elastic_collision_final_velocities_1d, is_perfectly_elastic, is_perfectly_inelastic,
+    is_valid_restitution, kinetic_energy_loss, kinetic_energy_loss_fraction,
+    perfectly_inelastic_collision_final_velocities_1d, perfectly_inelastic_collision_velocity_1d,
+    relative_speed, relative_velocity, separation_speed_from_restitution, total_kinetic_energy_1d,
+};
+
 #[cfg(all(feature = "fluid", not(feature = "pressure")))]
 pub use crate::{
     Fluid, PipeFlow, absolute_pressure, bernoulli_pressure, buoyant_force, continuity_area,
@@ -200,18 +222,14 @@ pub use crate::{
 
 #[cfg(all(feature = "momentum", not(feature = "force")))]
 pub use crate::{
-    MovingMass, average_force_from_impulse, elastic_collision_velocities,
-    elastic_collision_velocity_a, elastic_collision_velocity_b,
-    final_velocity_after_sticking_collision, impulse, impulse_from_momentum_change,
+    MovingMass, average_force_from_impulse, impulse, impulse_from_momentum_change,
     mass_from_momentum, momentum, recoil_velocity, total_momentum, two_body_total_momentum,
     velocity_from_momentum,
 };
 
 #[cfg(all(feature = "momentum", feature = "force"))]
 pub use crate::{
-    MovingMass, average_force_from_impulse, elastic_collision_velocities,
-    elastic_collision_velocity_a, elastic_collision_velocity_b,
-    final_velocity_after_sticking_collision, impulse_from_momentum_change, mass_from_momentum,
+    MovingMass, average_force_from_impulse, impulse_from_momentum_change, mass_from_momentum,
     momentum, momentum_impulse, recoil_velocity, total_momentum, two_body_total_momentum,
     velocity_from_momentum,
 };

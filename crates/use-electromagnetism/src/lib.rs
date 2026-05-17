@@ -51,7 +51,7 @@ pub struct ElectromagneticField {
 impl ElectromagneticField {
     /// Creates a field pair when both scalar components are finite.
     #[must_use]
-    pub fn new(electric_field: f64, magnetic_flux_density: f64) -> Option<Self> {
+    pub const fn new(electric_field: f64, magnetic_flux_density: f64) -> Option<Self> {
         if !electric_field.is_finite() || !magnetic_flux_density.is_finite() {
             return None;
         }
@@ -240,7 +240,7 @@ pub fn lorentz_force_magnitude_perpendicular(
         return None;
     }
 
-    let combined_term = electric_field_magnitude + speed * magnetic_flux_density_magnitude;
+    let combined_term = speed.mul_add(magnetic_flux_density_magnitude, electric_field_magnitude);
     nonnegative_finite_result(charge.abs() * combined_term.abs())
 }
 

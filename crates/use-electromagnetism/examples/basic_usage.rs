@@ -9,9 +9,9 @@ fn main() -> Result<(), &'static str> {
         .ok_or("invalid Lorentz-force inputs")?;
     let radius = cyclotron_radius(2.0, 10.0, 1.0, 5.0).ok_or("invalid cyclotron inputs")?;
 
-    assert_eq!(selector_speed, 5.0);
-    assert_eq!(lorentz_force, 16.0);
-    assert_eq!(radius, 4.0);
+    assert!((selector_speed - 5.0).abs() < 1.0e-12);
+    assert!((lorentz_force - 16.0).abs() < 1.0e-12);
+    assert!((radius - 4.0).abs() < 1.0e-12);
     assert!(field.energy_density().ok_or("invalid energy density")? > 0.0);
 
     Ok(())

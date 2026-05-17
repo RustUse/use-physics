@@ -1,8 +1,8 @@
 # RustUse/use-physics
 
 Composable `f64`-first mechanics, oscillation, rotational motion, torque, fluid flow, electricity,
-magnetism, electromagnetism, plasma physics, gravity, orbital mechanics, momentum, special
-relativity, quantum physics, particle metadata, nuclear physics, radiation physics, and
+magnetism, electromagnetism, plasma physics, gravity, orbital mechanics, momentum, collisions,
+special relativity, quantum physics, particle metadata, nuclear physics, radiation physics, and
 thermodynamics helpers for Rust.
 
 ## Workspace crates
@@ -27,7 +27,8 @@ thermodynamics helpers for Rust.
 | `use-density`          | `crates/use-density/`          | Density, mass, and volume helpers                    |
 | `use-gravity`          | `crates/use-gravity/`          | Gravity, orbit, and gravitational energy helpers     |
 | `use-orbit`            | `crates/use-orbit/`            | Orbital mechanics scalar helpers                     |
-| `use-momentum`         | `crates/use-momentum/`         | Momentum, impulse, recoil, and collision helpers     |
+| `use-momentum`         | `crates/use-momentum/`         | Momentum, impulse, and recoil helpers                |
+| `use-collision`        | `crates/use-collision/`        | One-dimensional collision and restitution helpers    |
 | `use-relativity`       | `crates/use-relativity/`       | Special relativity scalar helpers                    |
 | `use-quantum`          | `crates/use-quantum/`          | Quantum physics scalar helpers                       |
 | `use-particle`         | `crates/use-particle/`         | Particle classification and metadata helpers         |

@@ -157,7 +157,7 @@
             "command": "bash",
             "args": [
                 "-lc",
-                "set -euo pipefail; for crate in use-motion use-rotation use-force use-torque use-energy use-work use-power use-fluid use-electricity use-magnetism use-electromagnetism use-plasma use-pressure use-density use-gravity use-orbit use-momentum use-relativity use-quantum use-particle use-nuclear use-radiation use-thermodynamics; do cargo package --list -p \"$crate\"; cargo publish --dry-run --allow-dirty -p \"$crate\"; done"
+                "set -euo pipefail; for crate in use-motion use-rotation use-force use-torque use-energy use-work use-power use-fluid use-electricity use-magnetism use-electromagnetism use-plasma use-pressure use-density use-gravity use-orbit use-momentum use-collision use-relativity use-quantum use-particle use-nuclear use-radiation use-thermodynamics; do cargo package --list -p \"$crate\"; cargo publish --dry-run --allow-dirty -p \"$crate\"; done"
             ],
             "windows": {
                 "command": "powershell",
@@ -166,7 +166,7 @@
                     "-ExecutionPolicy",
                     "Bypass",
                     "-Command",
-                    "$ErrorActionPreference = 'Stop'; $crates = @('use-motion','use-rotation','use-force','use-torque','use-energy','use-work','use-power','use-fluid','use-electricity','use-magnetism','use-electromagnetism','use-plasma','use-pressure','use-density','use-gravity','use-orbit','use-momentum','use-relativity','use-quantum','use-particle','use-nuclear','use-radiation','use-thermodynamics'); foreach ($crate in $crates) { cargo package --list -p $crate; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; cargo publish --dry-run --allow-dirty -p $crate; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } }"
+                    "$ErrorActionPreference = 'Stop'; $crates = @('use-motion','use-rotation','use-force','use-torque','use-energy','use-work','use-power','use-fluid','use-electricity','use-magnetism','use-electromagnetism','use-plasma','use-pressure','use-density','use-gravity','use-orbit','use-momentum','use-collision','use-relativity','use-quantum','use-particle','use-nuclear','use-radiation','use-thermodynamics'); foreach ($crate in $crates) { cargo package --list -p $crate; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; cargo publish --dry-run --allow-dirty -p $crate; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE } }"
                 ]
             },
             "problemMatcher": []
