@@ -27,6 +27,7 @@ body:
         - use-fluid focused crate
         - use-electricity focused crate
         - use-magnetism focused crate
+        - use-electromagnetism focused crate
         - use-pressure focused crate
         - use-density focused crate
         - use-gravity focused crate

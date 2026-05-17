@@ -10,6 +10,7 @@
     feature = "power",
     feature = "electricity",
     feature = "magnetism",
+    feature = "electromagnetism",
     feature = "pressure",
     feature = "fluid",
     feature = "density",
@@ -22,12 +23,14 @@
 #[test]
 fn facade_exposes_all_namespace_features() {
     use use_physics::{
-        density as _, electricity as _, energy as _, fluid as _, force as _, gravity as _,
-        magnetism as _, momentum as _, motion as _, nuclear as _, particle as _, power as _,
-        pressure as _, rotation as _, thermodynamics as _, torque as _,
+        density as _, electricity as _, electromagnetism as _, energy as _, fluid as _, force as _,
+        gravity as _, magnetism as _, momentum as _, motion as _, nuclear as _, particle as _,
+        power as _, pressure as _, rotation as _, thermodynamics as _, torque as _,
     };
 
     let _ = use_physics::work::net_work;
+    let _ = use_physics::ELECTROMAGNETISM_SPEED_OF_LIGHT;
+    let _ = use_physics::ELECTROMAGNETISM_VACUUM_PERMEABILITY;
 }
 
 #[cfg(all(
@@ -39,6 +42,7 @@ fn facade_exposes_all_namespace_features() {
     not(feature = "power"),
     not(feature = "electricity"),
     not(feature = "magnetism"),
+    not(feature = "electromagnetism"),
     not(feature = "pressure"),
     not(feature = "fluid"),
     not(feature = "density"),
@@ -64,6 +68,7 @@ fn facade_supports_force_only() {
     not(feature = "power"),
     not(feature = "electricity"),
     not(feature = "magnetism"),
+    not(feature = "electromagnetism"),
     not(feature = "pressure"),
     not(feature = "fluid"),
     not(feature = "density"),
@@ -88,6 +93,7 @@ fn facade_supports_momentum_only() {
     not(feature = "power"),
     not(feature = "electricity"),
     not(feature = "magnetism"),
+    not(feature = "electromagnetism"),
     not(feature = "pressure"),
     not(feature = "fluid"),
     not(feature = "density"),
@@ -107,6 +113,34 @@ fn facade_supports_rotation_only() {
 }
 
 #[cfg(all(
+    feature = "electromagnetism",
+    not(feature = "motion"),
+    not(feature = "rotation"),
+    not(feature = "force"),
+    not(feature = "torque"),
+    not(feature = "energy"),
+    not(feature = "work"),
+    not(feature = "power"),
+    not(feature = "electricity"),
+    not(feature = "magnetism"),
+    not(feature = "pressure"),
+    not(feature = "fluid"),
+    not(feature = "density"),
+    not(feature = "gravity"),
+    not(feature = "momentum"),
+    not(feature = "particle"),
+    not(feature = "nuclear"),
+    not(feature = "thermodynamics")
+))]
+#[test]
+fn facade_supports_electromagnetism_only() {
+    assert_eq!(use_physics::electric_force_on_charge(2.0, 3.0), Some(6.0));
+    assert_eq!(use_physics::velocity_selector_speed(20.0, 4.0), Some(5.0));
+    assert_eq!(use_physics::SPEED_OF_LIGHT, 299_792_458.0);
+    assert_eq!(use_physics::VACUUM_PERMEABILITY, 1.256_637_062_12e-6);
+}
+
+#[cfg(all(
     feature = "nuclear",
     not(feature = "motion"),
     not(feature = "rotation"),
@@ -117,6 +151,7 @@ fn facade_supports_rotation_only() {
     not(feature = "power"),
     not(feature = "electricity"),
     not(feature = "magnetism"),
+    not(feature = "electromagnetism"),
     not(feature = "pressure"),
     not(feature = "fluid"),
     not(feature = "density"),

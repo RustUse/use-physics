@@ -28,6 +28,7 @@ work = ["dep:use-work"]
 power = ["dep:use-power"]
 electricity = ["dep:use-electricity"]
 magnetism = ["dep:use-magnetism"]
+electromagnetism = ["dep:use-electromagnetism"]
 pressure = ["dep:use-pressure"]
 fluid = ["dep:use-fluid"]
 density = ["dep:use-density"]
@@ -46,6 +47,7 @@ full = [
     "power",
     "electricity",
     "magnetism",
+    "electromagnetism",
     "pressure",
     "fluid",
     "density",
@@ -60,6 +62,7 @@ full = [
 use-density = { version = "0.0.1", path = "../use-density", optional = true }
 use-energy = { version = "0.0.1", path = "../use-energy", optional = true }
 use-electricity = { version = "0.0.1", path = "../use-electricity", optional = true }
+use-electromagnetism = { version = "0.0.1", path = "../use-electromagnetism", optional = true }
 use-force = { version = "0.0.1", path = "../use-force", optional = true }
 use-fluid = { version = "0.0.1", path = "../use-fluid", optional = true }
 use-gravity = { version = "0.0.1", path = "../use-gravity", optional = true }
