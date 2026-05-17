@@ -118,6 +118,47 @@ pub use crate::SPEED_OF_LIGHT;
 ))]
 pub use crate::QUANTUM_SPEED_OF_LIGHT;
 
+#[cfg(feature = "plasma")]
+pub use crate::{
+    BOLTZMANN_CONSTANT, ElectronPlasma, PROTON_MASS, PlasmaSpecies, alfven_speed, charge_density,
+    debye_length, debye_number, debye_sphere_volume, electron_gyrofrequency, electron_gyroradius,
+    electron_plasma_angular_frequency, electron_plasma_frequency, electron_thermal_speed,
+    gyro_angular_frequency, gyrofrequency, gyroradius, ion_plasma_angular_frequency,
+    is_quasi_neutral, is_valid_coulomb_logarithm, particle_thermal_speed, plasma_beta,
+    plasma_pressure, total_plasma_pressure,
+};
+
+#[cfg(all(feature = "plasma", not(feature = "quantum")))]
+pub use crate::{ELECTRON_MASS, ELEMENTARY_CHARGE};
+
+#[cfg(all(feature = "plasma", feature = "quantum"))]
+pub use crate::{PLASMA_ELECTRON_MASS, PLASMA_ELEMENTARY_CHARGE};
+
+#[cfg(all(feature = "plasma", not(feature = "electromagnetism")))]
+pub use crate::VACUUM_PERMITTIVITY;
+
+#[cfg(all(feature = "plasma", feature = "electromagnetism"))]
+pub use crate::PLASMA_VACUUM_PERMITTIVITY;
+
+#[cfg(all(
+    feature = "plasma",
+    not(feature = "magnetism"),
+    not(feature = "electromagnetism")
+))]
+pub use crate::VACUUM_PERMEABILITY;
+
+#[cfg(all(
+    feature = "plasma",
+    any(feature = "magnetism", feature = "electromagnetism")
+))]
+pub use crate::PLASMA_VACUUM_PERMEABILITY;
+
+#[cfg(all(feature = "plasma", not(feature = "magnetism")))]
+pub use crate::magnetic_pressure;
+
+#[cfg(all(feature = "plasma", feature = "magnetism"))]
+pub use crate::plasma_magnetic_pressure;
+
 #[cfg(feature = "force")]
 pub use crate::{STANDARD_GRAVITY, earth_weight, force, impulse, weight};
 

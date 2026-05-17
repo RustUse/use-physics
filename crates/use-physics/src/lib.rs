@@ -149,6 +149,53 @@ pub use use_quantum::SPEED_OF_LIGHT;
 ))]
 pub use use_quantum::SPEED_OF_LIGHT as QUANTUM_SPEED_OF_LIGHT;
 
+#[cfg(feature = "plasma")]
+pub use use_plasma as plasma;
+
+#[cfg(feature = "plasma")]
+pub use use_plasma::{
+    BOLTZMANN_CONSTANT, ElectronPlasma, PROTON_MASS, PlasmaSpecies, alfven_speed, charge_density,
+    debye_length, debye_number, debye_sphere_volume, electron_gyrofrequency, electron_gyroradius,
+    electron_plasma_angular_frequency, electron_plasma_frequency, electron_thermal_speed,
+    gyro_angular_frequency, gyrofrequency, gyroradius, ion_plasma_angular_frequency,
+    is_quasi_neutral, is_valid_coulomb_logarithm, particle_thermal_speed, plasma_beta,
+    plasma_pressure, total_plasma_pressure,
+};
+
+#[cfg(all(feature = "plasma", not(feature = "quantum")))]
+pub use use_plasma::{ELECTRON_MASS, ELEMENTARY_CHARGE};
+
+#[cfg(all(feature = "plasma", feature = "quantum"))]
+pub use use_plasma::ELECTRON_MASS as PLASMA_ELECTRON_MASS;
+
+#[cfg(all(feature = "plasma", feature = "quantum"))]
+pub use use_plasma::ELEMENTARY_CHARGE as PLASMA_ELEMENTARY_CHARGE;
+
+#[cfg(all(feature = "plasma", not(feature = "electromagnetism")))]
+pub use use_plasma::VACUUM_PERMITTIVITY;
+
+#[cfg(all(feature = "plasma", feature = "electromagnetism"))]
+pub use use_plasma::VACUUM_PERMITTIVITY as PLASMA_VACUUM_PERMITTIVITY;
+
+#[cfg(all(
+    feature = "plasma",
+    not(feature = "magnetism"),
+    not(feature = "electromagnetism")
+))]
+pub use use_plasma::VACUUM_PERMEABILITY;
+
+#[cfg(all(
+    feature = "plasma",
+    any(feature = "magnetism", feature = "electromagnetism")
+))]
+pub use use_plasma::VACUUM_PERMEABILITY as PLASMA_VACUUM_PERMEABILITY;
+
+#[cfg(all(feature = "plasma", not(feature = "magnetism")))]
+pub use use_plasma::magnetic_pressure;
+
+#[cfg(all(feature = "plasma", feature = "magnetism"))]
+pub use use_plasma::magnetic_pressure as plasma_magnetic_pressure;
+
 #[cfg(feature = "force")]
 pub use use_force as force;
 

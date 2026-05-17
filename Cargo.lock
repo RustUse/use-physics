@@ -71,6 +71,7 @@ dependencies = [
  "use-nuclear",
  "use-orbit",
  "use-particle",
+ "use-plasma",
  "use-power",
  "use-pressure",
  "use-quantum",
@@ -80,6 +81,10 @@ dependencies = [
  "use-torque",
  "use-work",
 ]
+
+[[package]]
+name = "use-plasma"
+version = "0.0.1"
 
 [[package]]
 name = "use-power"

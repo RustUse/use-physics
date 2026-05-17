@@ -29,6 +29,7 @@ power = ["dep:use-power"]
 electricity = ["dep:use-electricity"]
 magnetism = ["dep:use-magnetism"]
 electromagnetism = ["dep:use-electromagnetism"]
+plasma = ["dep:use-plasma"]
 pressure = ["dep:use-pressure"]
 fluid = ["dep:use-fluid"]
 density = ["dep:use-density"]
@@ -51,6 +52,7 @@ full = [
     "electricity",
     "magnetism",
     "electromagnetism",
+    "plasma",
     "pressure",
     "fluid",
     "density",
@@ -78,6 +80,7 @@ use-motion = { version = "0.0.1", path = "../use-motion", optional = true }
 use-nuclear = { version = "0.0.1", path = "../use-nuclear", optional = true }
 use-orbit = { version = "0.0.1", path = "../use-orbit", optional = true }
 use-particle = { version = "0.0.1", path = "../use-particle", optional = true }
+use-plasma = { version = "0.0.1", path = "../use-plasma", optional = true }
 use-power = { version = "0.0.1", path = "../use-power", optional = true }
 use-pressure = { version = "0.0.1", path = "../use-pressure", optional = true }
 use-quantum = { version = "0.0.1", path = "../use-quantum", optional = true }

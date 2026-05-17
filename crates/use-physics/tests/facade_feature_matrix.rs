@@ -11,6 +11,7 @@
     feature = "electricity",
     feature = "magnetism",
     feature = "electromagnetism",
+    feature = "plasma",
     feature = "pressure",
     feature = "fluid",
     feature = "density",
@@ -27,13 +28,17 @@ fn facade_exposes_all_namespace_features() {
     use use_physics::{
         density as _, electricity as _, electromagnetism as _, energy as _, fluid as _, force as _,
         gravity as _, magnetism as _, momentum as _, motion as _, nuclear as _, particle as _,
-        power as _, pressure as _, quantum as _, relativity as _, rotation as _,
+        plasma as _, power as _, pressure as _, quantum as _, relativity as _, rotation as _,
         thermodynamics as _, torque as _,
     };
 
     let _ = use_physics::work::net_work;
     let _ = use_physics::ELECTROMAGNETISM_SPEED_OF_LIGHT;
     let _ = use_physics::ELECTROMAGNETISM_VACUUM_PERMEABILITY;
+    let _ = use_physics::PLASMA_ELEMENTARY_CHARGE;
+    let _ = use_physics::PLASMA_ELECTRON_MASS;
+    let _ = use_physics::PLASMA_VACUUM_PERMEABILITY;
+    let _ = use_physics::PLASMA_VACUUM_PERMITTIVITY;
     let _ = use_physics::RELATIVITY_SPEED_OF_LIGHT;
     let _ = use_physics::QUANTUM_SPEED_OF_LIGHT;
 }
@@ -48,6 +53,7 @@ fn facade_exposes_all_namespace_features() {
     not(feature = "electricity"),
     not(feature = "magnetism"),
     not(feature = "electromagnetism"),
+    not(feature = "plasma"),
     not(feature = "pressure"),
     not(feature = "fluid"),
     not(feature = "density"),
@@ -75,6 +81,7 @@ fn facade_supports_force_only() {
     not(feature = "electricity"),
     not(feature = "magnetism"),
     not(feature = "electromagnetism"),
+    not(feature = "plasma"),
     not(feature = "pressure"),
     not(feature = "fluid"),
     not(feature = "density"),
@@ -101,6 +108,7 @@ fn facade_supports_momentum_only() {
     not(feature = "electricity"),
     not(feature = "magnetism"),
     not(feature = "electromagnetism"),
+    not(feature = "plasma"),
     not(feature = "pressure"),
     not(feature = "fluid"),
     not(feature = "density"),
@@ -132,6 +140,7 @@ fn facade_supports_rotation_only() {
     not(feature = "electricity"),
     not(feature = "magnetism"),
     not(feature = "pressure"),
+    not(feature = "plasma"),
     not(feature = "fluid"),
     not(feature = "density"),
     not(feature = "gravity"),
@@ -161,6 +170,7 @@ fn facade_supports_electromagnetism_only() {
     not(feature = "electricity"),
     not(feature = "magnetism"),
     not(feature = "electromagnetism"),
+    not(feature = "plasma"),
     not(feature = "pressure"),
     not(feature = "fluid"),
     not(feature = "density"),
@@ -188,6 +198,7 @@ fn facade_supports_nuclear_only() {
     not(feature = "electricity"),
     not(feature = "magnetism"),
     not(feature = "electromagnetism"),
+    not(feature = "plasma"),
     not(feature = "pressure"),
     not(feature = "fluid"),
     not(feature = "density"),
@@ -222,6 +233,7 @@ fn facade_supports_relativity_only() {
     not(feature = "electricity"),
     not(feature = "magnetism"),
     not(feature = "electromagnetism"),
+    not(feature = "plasma"),
     not(feature = "pressure"),
     not(feature = "fluid"),
     not(feature = "density"),

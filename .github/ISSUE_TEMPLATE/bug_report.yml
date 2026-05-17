@@ -28,9 +28,11 @@ body:
         - use-electricity focused crate
         - use-magnetism focused crate
         - use-electromagnetism focused crate
+        - use-plasma focused crate
         - use-pressure focused crate
         - use-density focused crate
         - use-gravity focused crate
+        - use-orbit focused crate
         - use-momentum focused crate
         - use-relativity focused crate
         - use-quantum focused crate
