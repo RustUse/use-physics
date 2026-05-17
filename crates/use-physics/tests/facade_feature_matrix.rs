@@ -17,6 +17,7 @@
     feature = "gravity",
     feature = "momentum",
     feature = "relativity",
+    feature = "quantum",
     feature = "particle",
     feature = "nuclear",
     feature = "thermodynamics"
@@ -26,14 +27,15 @@ fn facade_exposes_all_namespace_features() {
     use use_physics::{
         density as _, electricity as _, electromagnetism as _, energy as _, fluid as _, force as _,
         gravity as _, magnetism as _, momentum as _, motion as _, nuclear as _, particle as _,
-        power as _, pressure as _, relativity as _, rotation as _, thermodynamics as _,
-        torque as _,
+        power as _, pressure as _, quantum as _, relativity as _, rotation as _,
+        thermodynamics as _, torque as _,
     };
 
     let _ = use_physics::work::net_work;
     let _ = use_physics::ELECTROMAGNETISM_SPEED_OF_LIGHT;
     let _ = use_physics::ELECTROMAGNETISM_VACUUM_PERMEABILITY;
     let _ = use_physics::RELATIVITY_SPEED_OF_LIGHT;
+    let _ = use_physics::QUANTUM_SPEED_OF_LIGHT;
 }
 
 #[cfg(all(
@@ -208,6 +210,37 @@ fn facade_supports_relativity_only() {
     );
 }
 
+#[cfg(all(
+    feature = "quantum",
+    not(feature = "motion"),
+    not(feature = "rotation"),
+    not(feature = "force"),
+    not(feature = "torque"),
+    not(feature = "energy"),
+    not(feature = "work"),
+    not(feature = "power"),
+    not(feature = "electricity"),
+    not(feature = "magnetism"),
+    not(feature = "electromagnetism"),
+    not(feature = "pressure"),
+    not(feature = "fluid"),
+    not(feature = "density"),
+    not(feature = "gravity"),
+    not(feature = "momentum"),
+    not(feature = "relativity"),
+    not(feature = "particle"),
+    not(feature = "nuclear"),
+    not(feature = "thermodynamics")
+))]
+#[test]
+fn facade_supports_quantum_only() {
+    assert_eq!(
+        use_physics::photon_energy_from_frequency(1.0),
+        Some(use_physics::PLANCK_CONSTANT)
+    );
+    assert_eq!(use_physics::SPEED_OF_LIGHT, 299_792_458.0);
+}
+
 #[cfg(all(feature = "force", feature = "momentum"))]
 #[test]
 fn facade_renames_conflicting_impulse_exports() {
@@ -243,4 +276,17 @@ fn facade_renames_conflicting_rotation_exports() {
 #[test]
 fn facade_renames_conflicting_relativity_speed_of_light_export() {
     assert_eq!(use_physics::RELATIVITY_SPEED_OF_LIGHT, 299_792_458.0);
+}
+
+#[cfg(all(
+    feature = "quantum",
+    any(
+        feature = "electromagnetism",
+        feature = "nuclear",
+        feature = "relativity"
+    )
+))]
+#[test]
+fn facade_renames_conflicting_quantum_speed_of_light_export() {
+    assert_eq!(use_physics::QUANTUM_SPEED_OF_LIGHT, 299_792_458.0);
 }

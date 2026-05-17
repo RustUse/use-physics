@@ -68,6 +68,7 @@ dependencies = [
  "use-particle",
  "use-power",
  "use-pressure",
+ "use-quantum",
  "use-relativity",
  "use-rotation",
  "use-thermodynamics",
@@ -81,6 +82,10 @@ version = "0.0.1"
 
 [[package]]
 name = "use-pressure"
+version = "0.0.1"
+
+[[package]]
+name = "use-quantum"
 version = "0.0.1"
 
 [[package]]

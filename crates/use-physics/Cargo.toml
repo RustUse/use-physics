@@ -35,6 +35,7 @@ density = ["dep:use-density"]
 gravity = ["dep:use-gravity"]
 momentum = ["dep:use-momentum"]
 relativity = ["dep:use-relativity"]
+quantum = ["dep:use-quantum"]
 particle = ["dep:use-particle"]
 nuclear = ["dep:use-nuclear"]
 thermodynamics = ["dep:use-thermodynamics"]
@@ -55,6 +56,7 @@ full = [
     "gravity",
     "momentum",
     "relativity",
+    "quantum",
     "particle",
     "nuclear",
     "thermodynamics",
@@ -75,6 +77,7 @@ use-nuclear = { version = "0.0.1", path = "../use-nuclear", optional = true }
 use-particle = { version = "0.0.1", path = "../use-particle", optional = true }
 use-power = { version = "0.0.1", path = "../use-power", optional = true }
 use-pressure = { version = "0.0.1", path = "../use-pressure", optional = true }
+use-quantum = { version = "0.0.1", path = "../use-quantum", optional = true }
 use-relativity = { version = "0.0.1", path = "../use-relativity", optional = true }
 use-rotation = { version = "0.0.1", path = "../use-rotation", optional = true }
 use-thermodynamics = { version = "0.0.1", path = "../use-thermodynamics", optional = true }
@@ -90,6 +93,11 @@ required-features = ["force", "energy"]
 name = "facade_particle"
 path = "examples/facade_particle.rs"
 required-features = ["particle"]
+
+[[example]]
+name = "facade_quantum"
+path = "examples/facade_quantum.rs"
+required-features = ["quantum"]
 
 [lints]
 workspace = true
