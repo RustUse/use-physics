@@ -1,6 +1,6 @@
 name: Facade Publish Readiness
 
-on:
+"on":
   workflow_dispatch:
     inputs:
       registry-ready:

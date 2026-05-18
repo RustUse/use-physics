@@ -1,6 +1,6 @@
 name: Publish Readiness
 
-on:
+"on":
   pull_request:
     branches:
       - main

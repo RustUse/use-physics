@@ -1,6 +1,6 @@
 name: Mirror Repositories
 
-on:
+"on":
   workflow_run:
     workflows:
       - CI
