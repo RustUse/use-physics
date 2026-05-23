@@ -12,7 +12,7 @@ version = "0.0.1"
 
 [[package]]
 name = "use-elasticity"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-electricity"
@@ -68,7 +68,7 @@ version = "0.0.1"
 
 [[package]]
 name = "use-physics"
-version = "0.0.1"
+version = "0.0.2"
 dependencies = [
  "use-collision",
  "use-density",

@@ -22,6 +22,12 @@ This document describes how maintainers should run releases with the current `re
 4. Merge the release PR after the required checks pass.
 5. Let `Release Publish Automation` publish from the merged release commit, or manually dispatch it with `post-initial-release = true` if you need a controlled rerun.
 
+## Elasticity name migration
+
+For the `0.0.2` collision-resolution patch, publish `use-elasticity` from this physics workspace
+before yanking the old materials-owned `use-elasticity 0.0.1`. Materials elasticity helpers now live
+under `use-material-elasticity`.
+
 ## Initial public release exception
 
 Do not use `Release Publish Automation` for the first public crates.io wave.

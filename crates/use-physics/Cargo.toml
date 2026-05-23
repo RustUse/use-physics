@@ -3,7 +3,7 @@ name = "use-physics"
 description = "Composable facade crate for RustUse physics helpers"
 publish = true
 authors.workspace = true
-version.workspace = true
+version = "0.0.2"
 edition.workspace = true
 homepage.workspace = true
 license.workspace = true
@@ -83,7 +83,7 @@ use-collision = { version = "0.0.1", path = "../use-collision", optional = true 
 use-density = { version = "0.0.1", path = "../use-density", optional = true }
 use-energy = { version = "0.0.1", path = "../use-energy", optional = true }
 use-electricity = { version = "0.0.1", path = "../use-electricity", optional = true }
-use-elasticity = { version = "0.0.1", path = "../use-elasticity", optional = true }
+use-elasticity = { version = "0.0.2", path = "../use-elasticity", optional = true }
 use-electromagnetism = { version = "0.0.1", path = "../use-electromagnetism", optional = true }
 use-force = { version = "0.0.1", path = "../use-force", optional = true }
 use-fluid = { version = "0.0.1", path = "../use-fluid", optional = true }

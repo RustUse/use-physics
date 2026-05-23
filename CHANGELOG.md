@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Changed
+
+- Published the physics-owned `use-elasticity` line as `0.0.2` and updated the `use-physics`
+	facade to depend on it, taking over the crate name after the materials elasticity helper moved to
+	`use-material-elasticity`.
+
 ### Added
 
 - Added the initial `use-physics` multi-crate workspace scaffold.

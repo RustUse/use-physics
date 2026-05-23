@@ -6,7 +6,7 @@ Small scalar elasticity and mechanics-of-materials helpers for `RustUse`.
 
 ```toml
 [dependencies]
-use-elasticity = "0.0.1"
+use-elasticity = "0.0.2"
 ```
 
 ## Foundation

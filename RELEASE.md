@@ -54,6 +54,12 @@ Before the first publish wave, confirm that the release surface:
 - Before `1.0`, breaking changes should bump the minor version.
 - Before `1.0`, additive compatible changes should bump the patch version.
 
+## Elasticity Name Migration
+
+The `use-elasticity` package name belongs to the physics workspace from `0.0.2` onward. The
+materials workspace now publishes its material-property elasticity helpers as
+`use-material-elasticity`.
+
 ## Automated Release Validation
 
 The repository includes a dedicated release-validation path:
