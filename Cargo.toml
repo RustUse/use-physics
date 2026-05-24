@@ -40,7 +40,7 @@ license = "MIT OR Apache-2.0"
 publish = false
 repository = "https://github.com/RustUse/use-physics"
 rust-version = "1.95.0"
-version = "0.0.1"
+version = "0.0.2"
 
 [workspace.metadata.rustuse.release]
 publish = false

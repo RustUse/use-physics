@@ -4,71 +4,71 @@ version = 4
 
 [[package]]
 name = "use-collision"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-density"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-elasticity"
-version = "0.0.2"
+version = "0.0.3"
 
 [[package]]
 name = "use-electricity"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-electromagnetism"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-energy"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-fluid"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-force"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-gravity"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-magnetism"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-momentum"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-motion"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-nuclear"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-orbit"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-oscillation"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-particle"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-physics"
-version = "0.0.2"
+version = "0.0.3"
 dependencies = [
  "use-collision",
  "use-density",
@@ -102,48 +102,48 @@ dependencies = [
 
 [[package]]
 name = "use-plasma"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-power"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-pressure"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-quantum"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-radiation"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-relativity"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-rigidbody"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-rotation"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-statics"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-thermodynamics"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-torque"
-version = "0.0.1"
+version = "0.0.2"
 
 [[package]]
 name = "use-work"
-version = "0.0.1"
+version = "0.0.2"
