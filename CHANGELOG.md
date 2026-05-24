@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+## [0.0.3](https://github.com/RustUse/use-physics/compare/use-physics-v0.0.2...use-physics-v0.0.3) - 2026-05-24
+
+### Changed
+
+- Publish use-elasticity v0.0.2; update refs
+- Initialize use-physics workspace and tooling
+
 ### Changed
 
 - Published the physics-owned `use-elasticity` line as `0.0.2` and updated the `use-physics`
